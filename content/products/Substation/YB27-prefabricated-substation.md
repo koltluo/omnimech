@@ -175,5 +175,5 @@ The load switch is an oil-immersed, three-phase linkage switch with a spring ope
 
 
 
-> We welcome global agents, distributors, retailers, and other partners to join us in developing mutually beneficial business relationships. Our products have received positive feedback from customers in many countries and regions, and we look forward to further expanding our influence. **Consultation Hotline: 150-6499-9739 E-Mail: Sales@lyskjd.com**
+> We welcome global agents, distributors, retailers, and other partners to join us in developing mutually beneficial business relationships. Our products have received positive feedback from customers in many countries and regions, and we look forward to further expanding our influence. **Consultation Hotline: 150-6499-9739 E-Mail: sales@omnimech.cc**
 

@@ -110,29 +110,3 @@ faqs:  # 定义 FAQs 数据
     answer: "If you receive industrial electrical products with manufacturing defects, we have a hassle-free return policy. Notify us within 7 days of receipt, and we'll arrange for the return of the defective products. Once the defect is verified, we'll provide a replacement, refund, or credit, depending on your preference. We stand behind the quality of our products and ensure your satisfaction."
 
 
----
-
-graph TD
-    A[电源接入] --> B[塑壳断路器]
-    B --> C[控制模式选择]
-    C -->|旋钮位置| D{是否允许启动?}
-    D -->|是| E[按下启动按钮]
-    E --> F[中间继电器得电]
-    F --> G[交流接触器吸合]
-    G --> H[电机启动运行]
-    H --> I[绿色指示灯亮起]
-    H --> J[电流监测]
-    J --> K{电流是否正常?}
-    K -->|是| L[电机持续运行]
-    K -->|否| M[热继电器动作]
-    M --> N[中间继电器失电]
-    N --> O[交流接触器断开]
-    O --> P[电机停止]
-    P --> Q[指示灯熄灭]
-    L --> R[运行过程]
-    R --> S[按下停止按钮]
-    S --> N
-    C -->|旋钮位置| T{是否允许停止?}
-    T -->|是| S
-    D -->|否| U[保持待机]
-    U --> C

@@ -70,5 +70,5 @@ MNS is a modular and multi-functional low-voltage power distribution cabinet, wh
 
 > **We welcome global agents, distributors, retailers, and other partners to join us and work together to develop mutually beneficial business relationships. Our products have already been well received by customers in many countries and regions, and we look forward to expanding our reach even further.**
 
- [contact us](/contact/): sales@senkuogroup.com  
+ [contact us](/contact/): sales@omnimech.cc
 

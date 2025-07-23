@@ -31,4 +31,4 @@ Electrical power transformers are essential electrical equipment used in power s
 
 Electrical power transformers are an indispensable part of the power system, ensuring that electrical energy can be efficiently and safely transmitted and distributed to various power consumption points through voltage transformation.
 
-> We welcome global agents, distributors, retailers, and other partners to join us in developing mutually beneficial business relationships. Our products have received positive feedback from customers in many countries and regions, and we look forward to further expanding our influence. **Consultation Hotline: 150-6499-9739 E-Mail: Sales@senkuogroup.com**
+> We welcome global agents, distributors, retailers, and other partners to join us in developing mutually beneficial business relationships. Our products have received positive feedback from customers in many countries and regions, and we look forward to further expanding our influence. **Consultation Hotline: 150-6499-9739 E-Mail: sales@omnimech.cc**
