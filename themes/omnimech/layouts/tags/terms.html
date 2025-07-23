@@ -1,0 +1,91 @@
+{{ define "main" }}
+<!-- Subheader -->
+{{/* layouts/partials/breadcrumb_styled.html */}}
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tags Content -->
+<section class="section-padding bg-light-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="tags-container bx-wrapper bg-custom-white padding-20">
+          <h2 class="text-custom-black mb-4">All Tags</h2>
+          
+          <div class="tags-cloud mb-4">
+            {{ $maxSize := 2.0 }}
+            {{ $minSize := 0.8 }}
+            {{ $sizeSpread := sub $maxSize $minSize }}
+            
+            {{ $maxCount := float (index .Data.Terms.ByCount 0).Count }}
+            {{ $minCount := float (index .Data.Terms.ByCount.Reverse 0).Count }}
+            {{ $countSpread := sub $maxCount $minCount }}
+            
+            {{ range .Data.Terms.Alphabetical }}
+              {{ $count := .Count }}
+              {{ $size := 1.0 }}
+              {{ if gt $countSpread 0 }}
+                {{ $size = (div (sub (float $count) $minCount) $countSpread) }}
+                {{ $size = (add (mul $size $sizeSpread) $minSize) }}
+              {{ end }}
+              
+              <a href="{{ .Page.RelPermalink }}" class="tag-item" 
+                 style="font-size: {{ $size }}rem; 
+                        --tag-lightness: calc(80% - {{ mul $size 10 }}%);
+                        --tag-hue: calc({{ mul $size 360 }}deg);">
+                {{ .Page.Title }} <span class="tag-count">{{ $count }}</span>
+              </a>
+            {{ end }}
+          </div>
+          
+          <div class="tags-list mt-5">
+            {{ range .Data.Terms.Alphabetical }}
+              <div class="tag-group mb-4">
+                <h3 class="tag-title">
+                  <a href="{{ .Page.RelPermalink }}" class="text-custom-black">
+                    #{{ .Page.Title }}
+                  </a>
+                  <span class="badge bg-custom-blue text-white ml-2">{{ .Count }}</span>
+                </h3>
+                
+                <div class="tag-posts mt-3">
+                  {{ range first 3 .Pages }}
+                    <div class="tag-post mb-2">
+                      <a href="{{ .RelPermalink }}" class="text-light-dark d-flex align-items-center">
+                        <span class="post-date mr-3">{{ .Date.Format "Jan 2" }}</span>
+                        <span class="post-title">{{ .Title }}</span>
+                      </a>
+                    </div>
+                  {{ end }}
+                  
+                  {{ if gt (len .Pages) 3 }}
+                    <div class="mt-2">
+                      <a href="{{ .Page.RelPermalink }}" class="text-custom-blue">
+                        View all {{ len .Pages }} posts...
+                      </a>
+                    </div>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        {{ partial "blog/sidebar.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,353 @@
+{{ define "main" }}
+
+<!-- Subheader -->
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+        {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Detail Section -->
+<section class="section-padding bg-light-white listing-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <article id="product-{{ .File.UniqueID }}" class="product listing-details-inner bg-custom-white padding-20 mb-xl-40">
+          <!-- Product Image and Summary Row -->
+          <div class="row mb-4">
+            <!-- Left Column: Gallery -->
+            <div class="col-md-6 gallery-column">
+              <div class="single-product-gallery" style="min-width: 400px; position: relative;">
+                <div class="xzoom-container">
+                  {{ $imagePath := .Params.image | default "theme-assets/images/product/default-product.jpg" }}
+                  {{ $imagePath = trim $imagePath "/" }}
+                  {{ $imageResource := resources.Get $imagePath }}
+                  {{ $imageURL := $imagePath | absURL }}
+                  {{ if $imageResource }}
+                    {{ with $imageResource.Resize "800x600 webp q90" }}
+                      {{ $imageURL = .Permalink }}
+                    {{ end }}
+                  {{ end }}
+                  {{ $xoriginal := .Params.xoriginal | default .Params.image | default "theme-assets/images/product/default-product.jpg" }}
+                  {{ $xoriginal = trim $xoriginal "/" }}
+                  {{ $xoriginalResource := resources.Get $xoriginal }}
+                  {{ $xoriginalURL := $xoriginal | absURL }}
+                  {{ if $xoriginalResource }}
+                    {{ with $xoriginalResource.Resize "1200x1200 webp q90" }}
+                      {{ $xoriginalURL = .Permalink }}
+                    {{ end }}
+                  {{ end }}
+                  <img src="{{ $imageURL }}" class="xzoom image-fit" xoriginal="{{ $xoriginalURL }}" alt="{{ $.Title }} - Product Image" itemprop="image" loading="lazy" decoding="async">
+                  <!-- Thumbnails with Navigation -->
+                  <div class="xzoom-thumbs-wrapper">
+                    <button class="thumb-nav thumb-prev" aria-label="Previous thumbnails" disabled>❮</button>
+                    <div class="xzoom-thumbs">
+                      {{ with .Params.gallery }}
+                        {{ range $index, $thumb := . }}
+                          {{ $thumbPath := trim $thumb "/" }}
+                          {{ $thumbResource := resources.Get $thumbPath }}
+                          {{ $thumbURL := $thumbPath | absURL }}
+                          {{ $largeURL := $thumbURL }}
+                          {{ if $thumbResource }}
+                            {{ with $thumbResource.Resize "100x100 webp q90" }}
+                              {{ $thumbURL = .Permalink }}
+                            {{ end }}
+                            {{ with $thumbResource.Resize "1200x1200 webp q90" }}
+                              {{ $largeURL = .Permalink }}
+                            {{ end }}
+                          {{ end }}
+                          <img class="xzoom-gallery {{ if eq $index 0 }}active{{ end }}" src="{{ $thumbURL }}" data-large="{{ $largeURL }}" alt="{{ $.Title }} Thumbnail">
+                        {{ end }}
+                      {{ end }}
+                    </div>
+                    <button class="thumb-nav thumb-next" aria-label="Next thumbnails">❯</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Summary -->
+            <div class="col-md-6 summary-column">
+              <div class="product-info product-summary">
+                <header class="post-header product-header">
+                  <h3 class="product-title entry-title text-custom-black" itemprop="name headline">{{ .Title }}</h3>
+                </header>
+                <div class="product-meta-list mt-3" itemprop="description">
+                  {{ with .Params.summary_specs }}
+                    {{ range . }}
+                      <p><strong>{{ .name }}:</strong> {{ .value | safeHTML }}</p>
+                    {{ end }}
+                  {{ end }}
+                </div>
+                <div class="product-inquiry mt-4">
+                  <a href="/booking/" class="btn-first btn-small" target="_blank">Send Inquiry</a>
+                  <a href="https://wa.me/+8615064999739?text=Hello" class="btn-first btn-submit mr-2" target="_blank">Live Chat</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="listing-meta-sec mb-md-80">
+            <h2 class="text-custom-black">{{ .Title }}</h2>
+            <p>{{ .Content | safeHTML }}</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="blog-details bg-custom-white">
+           <hr> <!-- Separator -->
+
+  <!-- Tags & Social Sharing -->
+  <div class="post-details-tags-social mb-xl-20">
+    <div class="row no-margin">
+      <div class="col-md-6">
+        <div class="tags-box">
+          <span class="fs-18 text-light-dark"><i class="fas fa-tags"></i></span>
+          <div class="tags">
+            {{ range $index, $tag := .Params.tags }}  <!--  修改此处，使用 .Params.tags -->
+              <a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}" target="_blank" >{{ $tag }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="social-media-box">
+          <ul class="custom-flex">
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" class="fb" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <span class="social-number bg-light-white">{{ .Params.facebook | default 500 }}</span>
+            </li>
+            <li>
+              <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" class="tw" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <span class="social-number bg-light-white">{{ .Params.twitter | default 20 }}</span>
+            </li>
+            <li>
+              <a href="https://wa.me/?text={{ .Title | urlquery }}%20{{ .Permalink | urlquery }}" class="fb" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <span class="social-number bg-light-white">{{ .Params.whatsapp | default 46 }}</span>
+            </li>
+            <li>  
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}" class="fb" target="_blank" rel="noopener noreferrer">    
+                <i class="fab fa-linkedin-in"></i> <!-- 使用 fa-linkedin-in 或 fa-linkedin -->  
+              </a>  
+              <span class="social-number bg-light-white">{{ .Params.linkedin | default 15 }}</span>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="bg-custom-blue share-button">
+                <i class="fas fa-share-alt"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+          <!-- Pagination -->
+          <div class="pagination-btn">
+            <nav>
+              <ul class="pagination">
+                {{ if .Prev }}
+                  <li class="page-item">
+                    <a class="page-link" href="{{ .Prev.RelPermalink }}">{{ i18n "previous" }}</a>
+                  </li>
+                {{ else }}
+                  <li class="page-item disabled">
+                    <span class="page-link">{{ i18n "previous" }}</span>
+                  </li>
+                {{ end }}
+                {{ if .Next }}
+                  <li class="page-item">
+                    <a class="page-link" href="{{ .Next.RelPermalink }}">{{ i18n "next" }}</a>
+                  </li>
+                {{ else }}
+                  <li class="page-item disabled">
+                    <span class="page-link">{{ i18n "next" }}</span>
+                  </li>
+                {{ end }}
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Related Products -->
+          <div class="listing-meta-sec mb-md-80">
+            <div class="listing-top-heading mb-xl-20">
+              <h6 class="no-margin text-custom-black">Related Products</h6>
+            </div>
+          </div>
+          <div id="pop-gallery-slider-related" class="gallery-container gallery-columns-4">
+            <div class="row">
+              {{ $related := "" }}
+              {{ with .Params.tags }}
+                {{ $related = first 4 (where (where $.Site.RegularPages "Section" $.Section) "Params.tags" "intersect" . | shuffle | symdiff (slice $.Page)) }}
+              {{ end }}
+              {{ if not $related }}
+                {{ $related = first 4 (where $.Site.RegularPages "Section" $.Section | shuffle | symdiff (slice $.Page)) }}
+              {{ end }}
+              {{ range $related }}
+                <div class="col-md-3 col-6 mb-4">
+                  {{ partial "products/product-card.html" . }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Sharing and XZoom JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const shareButton = document.querySelector('.share-button');
+    if (shareButton) {
+      shareButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        const shareUrl = window.location.href;
+        const shareTitle = document.title;
+        if (navigator.share) {
+          navigator.share({
+            title: shareTitle,
+            text: '',
+            url: shareUrl,
+          })
+          .then(() => console.log('分享成功!'))
+          .catch((error) => console.log('分享失败:', error));
+        } else {
+          alert('您的浏览器不支持分享功能，请手动复制链接。');
+        }
+      });
+    }
+    {{ if .Params.use_xzoom }}
+      console.log('jQuery loaded:', typeof jQuery !== 'undefined');
+      console.log('XZoom elements:', jQuery('.xzoom').length);
+      if (typeof jQuery.fn.xzoom === 'undefined') {
+        console.error('XZoom plugin not loaded');
+      } else if (jQuery('.xzoom').length > 0) {
+        // 初始化 XZoom
+        jQuery('.xzoom').xzoom({
+          zoomWidth: 300,
+          zoomHeight: 300,
+          tint: '#333',
+          tintOpacity: 0.5,
+          position: 'right',
+          Xlens: true,
+          lensShape: 'box',
+          smoothZoomMove: 3
+        });
+        console.log('XZoom initialized');
+
+        // 缩略图切换
+        jQuery('.xzoom-gallery').on('click', function() {
+          const $this = jQuery(this);
+          const newSrc = $this.attr('src');
+          const newLargeSrc = $this.attr('data-large');
+
+          const $mainImage = jQuery('.xzoom');
+          $mainImage.css('opacity', 0).attr('src', newSrc).attr('xoriginal', newLargeSrc).animate({ opacity: 1 }, 300);
+
+          $mainImage.xzoom({
+            zoomWidth: 300,
+            zoomHeight: 300,
+            tint: '#333',
+            tintOpacity: 0.5,
+            position: 'right',
+            Xlens: true,
+            lensShape: 'box',
+            smoothZoomMove: 3
+          });
+
+          jQuery('.xzoom-gallery').removeClass('active');
+          $this.addClass('active');
+        });
+
+        // 缩略图滑动逻辑（包含动态宽度、触摸支持、可访问性）
+        const thumbsWrapper = document.querySelector('.xzoom-thumbs');
+        const thumbs = document.querySelectorAll('.xzoom-gallery');
+        const thumbPrev = document.querySelector('.thumb-prev');
+        const thumbNext = document.querySelector('.thumb-next');
+        const thumbWidth = thumbs[0] ? (thumbs[0].offsetWidth + parseInt(getComputedStyle(thumbs[0]).marginRight || 10)) : 110; // 动态计算宽度
+        const visibleThumbs = 5;
+        let currentIndex = 0;
+        let startX, isDragging = false;
+
+        function updateThumbNav() {
+          thumbPrev.disabled = currentIndex === 0;
+          thumbNext.disabled = currentIndex >= thumbs.length - visibleThumbs;
+        }
+
+        thumbPrev.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            thumbsWrapper.style.transform = `translateX(-${currentIndex * thumbWidth}px)`;
+            updateThumbNav();
+          }
+        });
+
+        thumbNext.addEventListener('click', () => {
+          if (currentIndex < thumbs.length - visibleThumbs) {
+            currentIndex++;
+            thumbsWrapper.style.transform = `translateX(-${currentIndex * thumbWidth}px)`;
+            updateThumbNav();
+          }
+        });
+
+        // 触摸支持
+        thumbsWrapper.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          isDragging = true;
+        });
+        thumbsWrapper.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          const diffX = startX - e.touches[0].clientX;
+          if (diffX > 50 && currentIndex < thumbs.length - visibleThumbs) {
+            currentIndex++;
+            thumbsWrapper.style.transform = `translateX(-${currentIndex * thumbWidth}px)`;
+            isDragging = false;
+          } else if (diffX < -50 && currentIndex > 0) {
+            currentIndex--;
+            thumbsWrapper.style.transform = `translateX(-${currentIndex * thumbWidth}px)`;
+            isDragging = false;
+          }
+        });
+        thumbsWrapper.addEventListener('touchend', () => {
+          isDragging = false;
+          updateThumbNav();
+        });
+
+        // 可访问性：键盘导航
+        thumbPrev.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            thumbPrev.click();
+          }
+        });
+        thumbNext.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            thumbNext.click();
+          }
+        });
+
+        // 初始状态
+        updateThumbNav();
+      } else {
+        console.error('No .xzoom elements found');
+      }
+    {{ end }}
+  });
+</script>
+
+{{ end }}

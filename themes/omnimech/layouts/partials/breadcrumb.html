@@ -1,0 +1,27 @@
+{{/* Breadcrumb Navigation Partial */}}
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ul class="custom-flex justify-content-center">
+    {{/* 始终显示首页链接 */}}
+
+    {{/* 递归获取所有父页面 */}}
+    {{ $parents := slice }}
+    {{ $current := . }}
+    {{ range $current.Ancestors.Reverse }}
+      {{ $parents = $parents | append . }}
+    {{ end }}
+
+    {{/* 显示所有父页面 */}}
+    {{ range $parents }}
+      <li class="fw-500">
+        <a href="{{ .RelPermalink }}" class="text-custom-white">{{ .Title }}</a>
+      </li>
+    {{ end }}
+
+    {{/* 当前页面（高亮） */}}
+    {{ if not (eq .RelPermalink "/") }}
+      <li class="active fw-500">
+        <span>{{ .Title }}</span>
+      </li>
+    {{ end }}
+  </ul>
+</nav>

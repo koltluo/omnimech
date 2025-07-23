@@ -1,0 +1,45 @@
+<!-- jQuery -->
+<script src="{{ "theme-assets/js/jquery.min.js" | absURL }}"></script>
+<!-- Popper -->
+<script src="{{ "theme-assets/js/popper.min.js" | absURL }}"></script>
+<!-- Bootstrap -->
+<script src="{{ "theme-assets/js/bootstrap.min.js" | absURL }}"></script>
+
+<!-- Range Slider -->
+<script src="{{ "theme-assets/js/ion.rangeSlider.min.js" | absURL }}"></script>
+<!-- Slick Slider -->
+<script src="{{ "theme-assets/js/slick.min.js" | absURL }}"></script>
+<!-- Datepicker -->
+<script src="{{ "theme-assets/js/datepicker.js" | absURL }}"></script>
+<script src="{{ "theme-assets/js/datepicker.en.js" | absURL }}"></script>
+<!-- Isotope Gallery -->
+<script src="{{ "theme-assets/js/isotope.pkgd.min.js" | absURL }}"></script>
+<!-- Nice Select -->
+<script src="{{ "theme-assets/js/jquery.nice-select.js" | absURL }}"></script>
+<!-- magnific popup -->
+<script src="{{ "theme-assets/js/jquery.magnific-popup.min.js" | absURL }}"></script>
+<script src="{{ "theme-assets/js/wow.min.js" | absURL }}"></script>
+<script>
+              new WOW().init();
+              </script>
+<!-- Custom Js -->
+<script src="{{ "theme-assets/js/custom.js" | absURL }}"></script>
+<!-- EmailJS Script -->
+<!-- In layouts/_default/baseof.html (or equivalent) before </body> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    // Ensure this runs only once
+    if (typeof emailjs === 'object' && typeof emailjs.init === 'function' && !window.emailjsInitialized) {
+         emailjs.init("Y7gu1M9_xZGOiqsUy"); // <<< REPLACE
+         window.emailjsInitialized = true; // Flag to prevent re-initialization
+    }
+</script>
+<script src="{{ "js/emailjs-handler.js" | relURL }}"></script> <!-- Load your unified handler -->
+<!-- xzoom js -->
+{{ if .Params.use_xzoom }}
+  <script defer src="{{ "theme-assets/js/jquery.min.js" | absURL }}"></script>
+  <script defer src="{{ "js/xzoom.min.js" | absURL }}"></script>
+  <noscript>
+    <p>Please enable JavaScript to use the image zoom feature.</p>
+  </noscript>
+{{ end }}

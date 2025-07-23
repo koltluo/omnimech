@@ -1,0 +1,96 @@
+<div class="sidebar_wrap mb-md-80">
+    <div class="sidebar">
+      {{/* --- Search Widget --- */}}
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Search</h5>
+        </div>
+        <form id="search-form">
+          <div class="input-group group-form">
+            <input type="search" class="form-control form-control-custom" placeholder="Search" value=""  id="search-input">
+            <span class="input-group-append"> <i class="fas fa-search"></i> </span>
+          </div>
+        </form>
+        <div id="search-results"></div>
+      </div>
+      {{/* --- Category Widget --- */}}
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Category</h5>
+        </div>
+        <ul class="categories custom">
+          {{ range $name, $taxonomy := site.Taxonomies.categories }}
+            <li> <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="text-custom-black fs-14">{{ $name }} <span class="text-light-dark">({{ len $taxonomy }})</span></a> </li>
+          {{ end }}
+        </ul>
+      </div>
+  
+              
+      {{/* --- Recent Posts Widget --- */}}
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Recent Posts</h5>
+        </div>
+        <ul class="popular-post custom resend-banner sidebar-arrow arrow-layout-2">
+          {{ $recentPosts := site.RegularPages.ByDate.Reverse | first 5 }} {{/* 获取最新的 5 篇文章 */}}
+          {{ range $recentPosts }}
+            <li class="post-box">
+              <div class="post-img p-relative mb-xl-20">
+                <a href="{{ .RelPermalink }}">
+                  {{ if .Params.image }}
+                    <img src="{{ .Params.image | relURL }}" class="full-width" alt="{{ .Title }}">
+                  {{ else }}
+                    <img src="/theme-assets/images/blog/blog-team.jpg" class="full-width" alt="{{ .Title }}">  {{/* 占位图 */}}
+                  {{ end }}
+                </a>
+              </div>
+              <a href="{{ .RelPermalink }}">
+                <p class="mb-xl-50">{{ .Title }}</p>
+              </a>
+              <!--  如果需要摘要，则取消注释下一行 -->
+             <p class="mb-xl-50">{{ .Params.summary }}</p> 
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+        
+      {{/* --- Tags Widget --- */}}
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Tags</h5>
+        </div>
+        <div class="tags">
+          {{ range $name, $taxonomy := site.Taxonomies.tags }}
+            <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}">{{ $name }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{/* --- Archive Widget (Dynamic) - Linking to Single Archive Page --- */}}
+      <div class="sidebar_widgets">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Archive</h5>
+        </div>
+        <ul class="categories custom">
+          {{ $archivePosts := .Site.RegularPages.ByDate.Reverse }}
+          {{ $years := slice }} {{/* 创建一个空切片来存储年份 */}}
+          {{ range $archivePosts }}
+              {{ $year := .Date.Format "2006" }}
+              {{ if not (in $years $year) }} {{/* 如果年份不在切片中 */}}
+                  {{ $years = $years | append $year }} {{/* 将年份添加到切片 */}}
+              {{ end }}
+          {{ end }}
+
+          {{/* 对年份进行排序（可选，如果需要确保年份顺序） */}}
+          {{ $sortedYears := $years | sort | collections.Reverse }} {{/* 降序 */}}
+
+          {{ range $sortedYears }}
+              <li>
+                {{/* 链接到 /archive/ 页面，并加上 #year-YYYY 锚点 */}}
+                <a href="{{ "/archive/" | relURL }}#year-{{ . }}" class="text-custom-black fs-14">{{ . }} <span class="text-light-dark"><i class="fas fa-arrow-right"></i></span></a>
+              </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+  

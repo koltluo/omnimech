@@ -1,0 +1,25 @@
+{{ if ne .Params.comments false }}  <!-- 除非明确设为 false，否则显示 -->
+<div class="comment-box section-padding-top p-relative" id="comments">  <!-- 锚点添加到这里 -->
+    <div id="comment-box">
+      <h4 class="text-custom-black fw-600">
+        Leave Comment
+      </h4>
+      <div id="twikoo"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.staticfile.org/twikoo/1.6.30/twikoo.min.js"></script>
+  <script>
+    twikoo.init({
+      envId: 'https://twikoo.nav8.top', // 你的腾讯云环境 ID
+      el: '#twikoo',
+      // region: 'ap-guangzhou', // 腾讯云地域，如果你的云函数在广州，可以去掉，默认为广州
+      // 可以自定义评论的标题和输入框，具体可以看官方文档
+      // 如：
+      path: location.pathname, // 你的文章路径
+      lang: 'en-us', // 语言，可以根据你的网站设置
+      // placeholder: '说点什么吧...',
+      // ... 更多配置，查看 Twikoo 官方文档
+    })
+  </script>
+{{ end }}

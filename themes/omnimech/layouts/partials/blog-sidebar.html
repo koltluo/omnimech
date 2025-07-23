@@ -1,0 +1,56 @@
+{{/* Basic Sidebar Structure - Populate with Widgets */}}
+<aside class="col-lg-4">
+  <div class="sidebar_wrap mb-md-80">
+    <div class="sidebar">
+
+
+      {{/* --- Categories Widget --- */}}
+      {{ $categories := site.Taxonomies.categories }}
+      {{ if gt (len $categories) 0 }}
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Category</h5>
+        </div>
+        <ul class="categories custom">
+          {{ range $name, $taxonomy := $categories }}
+          <li> <a href="{{ $taxonomy.Page.RelPermalink }}" class="text-custom-black fs-14" target="_blank">{{ $name | humanize }} <span class="text-light-dark">({{ $taxonomy.Count }})</span></a> </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      {{/* --- Popular Post Widget (Assuming Popularity is based on recent posts - Adjust the logic as needed) --- */}}
+      {{ $recentPosts := first 4 (where site.RegularPages "Section" "blog") }} {{/* Get the 4 most recent posts */}}
+      {{ if $recentPosts }}
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">Popular Post</h5>
+        </div>
+        <ul class="custom popular_post">
+          {{ range $recentPosts }}
+          <li class="mb-xl-20">
+            <div class="post">
+              <div class="post-wrapper">
+                <div class="popular_post_img animate-img">
+                  <a href="{{ .RelPermalink }}" target="_blank">
+                    {{ with .Params.image }}
+                      <img src="{{ . | relURL }}" class="image-fit" alt="{{ $.Title }}">  {{/* Corrected Line - Access title using $.Title */}}
+                    {{ else }}
+                      <img src="{{ "/assets/images/blog/blog-placeholder.jpg" | relURL }}" class="image-fit" alt="{{ .Title }}">
+                    {{ end }}
+                  </a>
+                </div>
+                <div class="popular_post_title">
+                  <h6><a href="{{ .RelPermalink }}" class="text-custom-black fs-14" target="_blank">{{ .Title }}</a></h6>
+                  <span class="date text-custom-blue fw-600 fs-14">{{ .Date.Format "02 Jan 2006" }}</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</aside>

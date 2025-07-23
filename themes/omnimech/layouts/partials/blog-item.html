@@ -1,0 +1,48 @@
+{{ $page := .context }}
+{{ $layout := .layout }}
+
+{{/* Determine column class based on layout */}}
+{{ $columnClass := "col-lg-4 col-md-6" }} {{/* Default for grid */}}
+{{ if eq $layout "sidebar" }}
+  {{ $columnClass = "col-md-6" }} {{/* Two columns in sidebar layout's content area */}}
+{{ end }}
+
+<article class="{{ $columnClass }} post mb-xl-30 wow fadeInUp">
+  <div class="post-wrapper bx-wrapper">
+    <div class="post-img animate-img">
+      <a href="{{ $page.RelPermalink }}">
+        {{/* Try to get image from front matter 'image' param */}}
+        {{ with $page.Params.image }}
+          {{/* 如果 image 字段是绝对路径，直接用，否则 relURL 处理 */}}
+          {{ if (hasPrefix . "/") }}
+            <img src="{{ . }}" class="full-width" alt="{{ $page.Title }}">
+          {{ else }}
+            <img src="{{ . | relURL }}" class="full-width" alt="{{ $page.Title }}">
+          {{ end }}
+        {{ else }}
+          <img src="{{ "/assets/images/blog/blog-placeholder.jpg" | relURL }}" class="full-width" alt="{{ $page.Title }}">
+        {{ end }}
+      </a>
+    </div>
+    <div class="blog-meta padding-20 bg-custom-white p-relative">
+      <h2> <a href="{{ $page.RelPermalink }}" class="text-custom-black fw-600 fs-20">{{ $page.Title }}</a> </h2>
+      {{/* Optional: Add Date/Author Meta */}}
+      <div class="post-date text-muted mb-2">
+          <i class="far fa-calendar-alt"></i> {{ $page.Date.Format "January 2, 2006" }}
+          {{ with $page.Params.author }} | <i class="far fa-user"></i> {{ . }}{{ end }}
+      </div>
+      <div class="post-meta mb-xl-20">
+        {{/* Placeholder for dynamic comments/likes - Requires more setup (e.g., Disqus) */}}
+        <a href="{{ $page.RelPermalink }}#comments" class="text-light-dark mr-1"> <span class="text-custom-blue"> <i class="fas fa-comment"></i> </span> Comments </a>
+        {{/* <a href="#" class="text-light-dark mr-1"> <span class="text-custom-blue"> <i class="fas fa-thumbs-up"></i> </span> Likes </a> */}}
+      </div>
+      <div class="post-heading">
+        {{/* Use Hugo's Summary feature */}}
+        <p class="text-light-dark no-margin">  {{ .Params.summary }}</p>
+      </div>
+    </div>
+    <div class="post-footer">
+      <a href="{{ $page.RelPermalink }}" class="fs-14 fs-600">Read More</a>
+    </div>
+  </div>
+</article>

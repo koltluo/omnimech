@@ -1,0 +1,89 @@
+{{ define "main" }}
+<!-- Subheader -->
+{{/* layouts/partials/breadcrumb_styled.html */}}
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tag Posts -->
+<section class="section-padding bg-light-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="tag-posts-container bx-wrapper bg-custom-white padding-20">
+          <div class="d-flex align-items-center mb-4">
+            <h2 class="text-custom-black mb-0">
+              <i class="fas fa-tag mr-2"></i>#{{ .Title }}
+            </h2>
+            <span class="badge bg-custom-blue text-white ml-3">
+              {{ len .Pages }} posts
+            </span>
+          </div>
+          
+          <div class="tag-description mb-4">
+            {{ with .Content }}
+              {{ . }}
+            {{ else }}
+              <p class="text-light-dark">All posts tagged with #{{ .Title }}.</p>
+            {{ end }}
+          </div>
+          
+          <div class="posts-list">
+            {{ range .Pages }}
+              <article class="post-summary mb-4 pb-4 border-bottom">
+                <div class="d-flex">
+                  {{ with .Params.image }}
+                    <div class="post-summary-image mr-4">
+                      <a href="{{ $.RelPermalink }}">
+                        <img src="{{ . | relURL }}" class="img-fluid" alt="{{ $.Title }}" style="width: 150px; height: 100px; object-fit: cover;">
+                      </a>
+                    </div>
+                  {{ end }}
+                  <div class="post-summary-content">
+                    <h3 class="post-summary-title mb-2">
+                      <a href="{{ .RelPermalink }}" class="text-custom-black">{{ .Title }}</a>
+                    </h3>
+                    <div class="post-summary-meta mb-2">
+                      <span class="text-light-dark mr-3">
+                        <i class="far fa-calendar-alt mr-1"></i>
+                        {{ .Date.Format "January 2, 2006" }}
+                      </span>
+                      <span class="text-light-dark">
+                        <i class="far fa-clock mr-1"></i>
+                        {{ .ReadingTime }} min read
+                      </span>
+                    </div>
+                    <p class="post-summary-excerpt text-light-dark mb-2">
+                      {{ .Params.summary | truncate 200 }}
+                    </p>
+                    <div class="post-summary-tags">
+                      {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="badge badge-secondary mr-2">
+                          #{{ . }}
+                        </a>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        {{ partial "blog/sidebar.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

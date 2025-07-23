@@ -1,0 +1,110 @@
+    <div class="sidebar_wrap mb-md-80">
+      <div class="sidebar">
+        <!-- Search Widget -->
+        <div class="sidebar_widgets mb-xl-30">
+          <div class="widget_title">
+            <h5 class="no-margin text-custom-white"> Search</h5>
+          </div>
+          <form>
+            <div class="form-group">
+              <label class="fs-14 text-custom-black fw-500">Your Name</label>
+              <input type="text" name="#" class="form-control form-control-custom" placeholder="Your Destination">
+            </div>
+            <div class="form-group">
+              <label class="fs-14 text-custom-black fw-500">Your E-mail</label>
+              <input type="email" name="#" class="form-control form-control-custom" placeholder="Your Destination">
+            </div>
+            <div class="form-group">
+              <label class="fs-14 text-custom-black fw-500">Password</label>
+              <input type="Password" name="#" class="form-control form-control-custom" placeholder="Your Destination">
+            </div>
+            <button type="submit" class="btn-first btn-submit full-width btn-height">Submit</button>
+          </form>
+        </div>
+  
+        <!-- Price Range Widget -->
+        <div class="sidebar_widgets mb-xl-30">
+          <div class="widget_title">
+            <h5 class="no-margin text-custom-white">Price</h5>
+          </div>
+          <div class="widget_range">
+            <div class="thc-range-inner">
+              <!-- Ensure your custom.js initializes this slider -->
+              <input type="text" class="js-range-slider1" name="my_range" value="">
+            </div>
+          </div>
+        </div>
+  
+        <!-- Categories Widget -->
+        <div class="sidebar_widgets mb-xl-30">
+          <div class="widget_title">
+            <h5 class="no-margin text-custom-white">Product Categories</h5>
+          </div>
+  
+          <form class="checkbox-group">
+            {{/*  使用 site.Taxonomies.categories 获取所有 "category" 分类项 */}}
+            {{ range $name, $taxonomy := site.Taxonomies.categories }}
+            <div class="form-group">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="category" value="{{ $name | urlize }}"> {{/*  value 使用 urlize 处理后的分类名，用于过滤 */}}
+                <span class="checkmark"></span> {{ $name | humanize }} <span class="count">({{ len $taxonomy.Pages }})</span> {{/* 显示分类下的文章数量  */}}
+              </label>
+            </div>
+            {{ end }}
+          </form>  
+          <!-- Static Categories (Use this for now) -->
+          <form class="checkbox-group">
+            <div class="form-group">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="#">
+                <span class="checkmark"></span> Full Size </label>
+            </div>
+            <div class="form-group">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="#">
+                <span class="checkmark"></span> Bags </label>
+            </div>
+            <div class="form-group">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="#">
+                <span class="checkmark"></span> Women </label>
+            </div>
+            <a class="btn-second btn-small mt-3" href="#">View More</a>
+          </form>
+        </div>
+  
+        <div class="sidebar_widgets mb-xl-30">
+            <div class="widget_title">
+              <h5 class="no-margin text-custom-white">Industry Agent</h5>
+            </div>
+            <form class="checkbox-group">
+              {{ range $name, $taxonomy := site.Taxonomies.brands }} {{/* 使用 site.Taxonomies.brands  */}}
+              <div class="form-group">
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="brand" value="{{ $name | urlize }}"> {{/* value 使用 urlize 处理后的分类名 */}}
+                  <span class="checkmark"></span> {{ $name | humanize }} <span class="count">({{ len $taxonomy.Pages }})</span>
+                </label>
+              </div>
+              {{ end }}
+            </form>
+          </div>
+            
+          <div class="sidebar_widgets">
+            <div class="widget_title">
+              <h5 class="no-margin text-custom-white">Vendor</h5>
+            </div>
+            <form class="checkbox-group">
+              {{ range $name, $taxonomy := site.Taxonomies.vendors }} {{/*  使用 site.Taxonomies.vendors  */}}
+              <div class="form-group">
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="vendor" value="{{ $name | urlize }}"> {{/* value 使用 urlize 处理后的分类名 */}}
+                  <span class="checkmark"></span> {{ $name | humanize }} <span class="count">({{ len $taxonomy.Pages }})</span>
+                </label>
+              </div>
+              {{ end }}
+            </form>
+          </div>
+            
+      </div> <!-- End sidebar -->
+    </div> <!-- End sidebar_wrap -->
+  

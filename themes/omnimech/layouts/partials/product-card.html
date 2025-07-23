@@ -1,0 +1,59 @@
+{{/* Represents a single product card in a grid */}}
+{{ $page := . }} {{/* Get the page object for this product */}}
+<div class="Product-grid mb-xl-30">
+  <div class="Product-grid-wrapper Product-grid bx-wrapper">
+    <div class="image-sec ">
+      <a href="{{ $page.Permalink }}">
+        {{/* Try to get image from front matter, fallback to placeholder */}}
+        {{ $imageResource := "" }}
+        {{ with $page.Params.image }}
+          {{/* Assume image is a path relative to assets or static */}}
+          {{ $imageResource = resources.Get . }}
+        {{ end }}
+
+        {{ if $imageResource }}
+          {{/* Process the image if needed (e.g., resize) */}}
+          {{ $image := $imageResource.Fill "600x400" }} {{/* Adjust dimensions as needed */}}
+          <img src="{{ $image.RelPermalink }}" class="full-width" alt="{{ $page.Title }}">
+        {{ else }}
+          {{/* Fallback placeholder */}}
+          <img src="{{ "images/placeholder.jpg" | relURL }}" class="full-width" alt="{{ $page.Title }}"> {{/* Adjust placeholder path */}}
+        {{ end }}
+      </a>
+      <div class="img-bottom">
+        {{/* Social links - keep static or make dynamic if needed */}}
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fas fa-star"></i></a></li> {{/* Maybe for wishlist? */}}
+        </ul>
+      </div>
+    </div>
+    <div class="Product-grid-caption padding-10 bg-custom-white p-relative text-center">
+      <h4 class="title fs-16"><a href="{{ $page.Permalink }}" class="text-custom-black">{{ $page.Title }}</a></h4>
+      {{/* Rating - Keep static or use a param like 'rating: 5' */}}
+      {{ $rating := $page.Params.rating | default 0 }}
+      <ul class="rating"> {{/* Add a class for easier styling */}}
+        {{ range (seq 5) }}
+          <li><i class="{{ if ge $rating . }}fas{{ else }}far{{ end }} fa-star"></i></li> {{/* Filled or empty star */}}
+        {{ end }}
+        {{/* Static stars:
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        <li><i class="fas fa-star"></i></li>
+        */}}
+      </ul>
+      <div class="price">
+         {{/* Get price from front matter */}}
+         <h5>
+           {{ with $page.Params.old_price }}<del>{{ . }}</del>{{ end }}
+           {{ with $page.Params.price }}<span>{{ . }}</span>{{ end }}
+         </h5>
+      </div>
+    </div>
+  </div>
+</div>

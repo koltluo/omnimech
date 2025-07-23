@@ -1,0 +1,48 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="keywords" content="{{ .Site.Params.keywords | default "" }}">
+<meta name="description" content="{{ .Description | default (.Site.Params.description | default "") }}">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ "theme-assets/images/favicon.ico" | absURL }}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ "theme-assets/images/favicon.ico" | absURL }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ "theme-assets/images/favicon.ico" | absURL }}">
+<link rel="apple-touch-icon-precomposed" href="{{ "theme-assets/images/favicon.ico" | absURL }}">
+<link rel="shortcut icon" href="{{ "theme-assets/images/favicon.png" | absURL }}">
+<!-- Bootstrap -->
+<link href="{{ "theme-assets/css/bootstrap.min.css" | absURL }}" rel="stylesheet">
+<link href="{{ "theme-assets/css/animate.css" | absURL }}" rel="stylesheet">
+<!-- Fontawesome -->
+<link href="{{ "theme-assets/css/font-awesome.css" | absURL }}" rel="stylesheet">
+<!-- Flaticons -->
+<link href="{{ "theme-assets/css/font/flaticon.css" | absURL }}" rel="stylesheet">
+<!-- Slick Slider -->
+<link href="{{ "theme-assets/css/slick.css" | absURL }}" rel="stylesheet">
+<!-- Range Slider -->
+<link href="{{ "theme-assets/css/ion.rangeSlider.min.css" | absURL }}" rel="stylesheet">
+<!-- Datepicker -->
+<link href="{{ "theme-assets/css/datepicker.css" | absURL }}" rel="stylesheet">
+<!-- magnific popup -->
+<link href="{{ "theme-assets/css/magnific-popup.css" | absURL }}" rel="stylesheet">
+<!-- Nice Select -->
+<link href="{{ "theme-assets/css/nice-select.css" | absURL }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.7.0/animate.css">
+<!-- Custom Stylesheet -->
+<link href="{{ "theme-assets/css/style.css" | absURL }}" rel="stylesheet">
+<!-- Custom Responsive -->
+<link href="{{ "theme-assets/css/responsive.css" | absURL }}" rel="stylesheet">
+<!-- xzoom css -->
+<link href="{{ "theme-assets/css/xzoom.css" | absURL }}" rel="stylesheet">
+
+<!-- CSS for IE -->
+<!--[if lte IE 9]>
+          <link rel="stylesheet" type="text/css" href="{{ "theme-assets/css/ie.css" | absURL }}" />
+      <![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+        <script type='text/javascript' src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+      <![endif]-->
+<!-- place -->
+{{ hugo.Generator }} <!-- Adds Hugo generator meta tag -->

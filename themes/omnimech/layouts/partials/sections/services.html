@@ -1,0 +1,33 @@
+{{ with .Site.Params.homepage.services }}
+{{ if .enable }}
+<section class="section-padding" id="services"> {{/* Added id for potential anchor linking */}}
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-heading">
+        {{ with .title }}<h3 class="text-custom-black">{{ . | safeHTML }}</h3>{{ end }}
+        {{ with .description }}<div class="section-description"><p class="text-light-dark">{{ . | markdownify }}</p></div>{{ end }}
+      </div>
+    </div>
+    <div class="row">
+      {{ range $index, $item := .items }}
+      {{/* Calculate delay based on index, e.g., 0.2s, 0.3s, 0.2s, 0.3s */}}
+      {{ $delay := printf "%.1fs" (add 0.2 (mul (mod $index 2) 0.1)) }}
+      {{/* Determine animation direction */}}
+      {{ $animation := "fadeInLeft" }}
+      {{ if gt $index 1 }}{{ $animation = "fadeInRight" }}{{ end }} {{/* Change to fadeInRight for the 3rd and 4th items */}}
+
+      <div class="col-lg-3 col-sm-6 wow {{ $animation }}" data-wow-delay="{{ $delay }}">
+        <a href="{{ $item.link | default "#" | absURL }}" class="services-small-item {{ if $item.active }}active{{ end }}">
+          {{ with $item.icon }}<div class="icon"> <i class="{{ . }}"></i> </div>{{ end }}
+          {{ with $item.title }}<h5 class="services-title">{{ . }}</h5>{{ end }}
+          {{ with $item.text }}<p>{{ . | markdownify }}</p>{{ end }}
+          <div class="button"> <i class="fa fa-chevron-right"></i> </div>
+        </a>
+        <div class="item-bg"></div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

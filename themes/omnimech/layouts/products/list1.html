@@ -1,0 +1,63 @@
+
+
+{{ define "main" }}
+<!-- Start Subheader -->
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+        <ul class="custom-flex justify-content-center">
+          <li class="fw-500"> <a href="{{ .Site.BaseURL | relLangURL }}" class="text-custom-white">Home</a> </li>
+          {{/* 面包屑导航 - 可以根据需要做得更复杂，显示层级 */}}
+          {{ range .Ancestors.Reverse }}
+            {{ if ne .Kind "home" }}
+              <li class="fw-500"> <a href="{{ .RelPermalink }}" class="text-custom-white">{{ .Title }}</a> </li>
+            {{ end }}
+          {{ end }}
+          <li class="active fw-500"> {{ .Title }} </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subheader -->
+
+    {{/* 1. 获取顶级的 "products" 区段页面对象 */}}
+    {{ $mainProductSection := .Site.GetPage "section" "products" }}
+
+    {{/* 2. 准备一个变量来存储要分页的页面集合 */}}
+    {{ $pagesToPaginate := slice }} {{/* 初始化为空切片 */}}
+
+    {{/* 3. 判断当前页面是否为顶级 "products" 区段页面 */}}
+    {{ if and $mainProductSection (eq .RelPermalink $mainProductSection.RelPermalink) }}
+        {{/* 是顶级 /products/ 页面: 获取 'products' 区段下的所有产品 */}}
+        {{ $pagesToPaginate = where .Site.RegularPages "Section" "products" }}
+        {{/* 或者，如果你只想获取第一层和第二层，可以写更复杂的逻辑，但通常获取所有更常见 */}}
+    {{ else }}
+        {{/* 不是顶级页面 (例如 /products/VFD/): 只获取当前区段下的产品 */}}
+        {{ $pagesToPaginate = .RegularPages }}
+    {{ end }}
+
+    {{/* 4. 对选定的页面集合进行排序和分页 */}}
+    {{/*    你可以按需修改排序方式, 比如 .ByWeight, .ByTitle 等 */}}
+    {{ $paginator := .Paginate ($pagesToPaginate.ByDate.Reverse) }}
+
+    {{/* 5. 获取当前页面的布局样式 (从当前页面的 _index.md 读取) */}}
+    {{/*    子目录如 /products/VFD/ 也可以有自己的 _index.md 并指定 layout_style */}}
+    {{ $layoutStyle := .Params.layout_style | default "full-width" }}
+
+    {{/* 6. 根据布局样式加载对应的 Partial 模板 */}}
+    {{/*    将分页器和当前页面上下文传递给 Partial */}}
+    {{ $partialData := dict "paginator" $paginator "context" . }} {{/* 创建一个 map 传递数据 */}}
+
+    {{ if eq $layoutStyle "left-sidebar" }}
+        {{ partial "products/layout-left-sidebar.html" $partialData }}
+    {{ else if eq $layoutStyle "right-sidebar" }}
+        {{ partial "products/layout-right-sidebar.html" $partialData }}
+    {{ else }} {{/* 默认或指定为 "full-width" */}}
+        {{ partial "products/layout-full-width.html" $partialData }}
+    {{ end }}
+
+{{ end }}
+

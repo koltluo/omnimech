@@ -1,0 +1,110 @@
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {{/* SEO Meta Tags */}}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ truncate 160 . }}{{ else }}{{ with .Site.Params.description }}{{ truncate 160 . }}{{ end }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/* Image Processing with resources.Get */}}
+  {{ $imagePath := .Params.image | default .Params.featured_image | default "images/default-og-image.jpg" }}
+  {{ $imagePath = trim $imagePath "/" }}
+  {{ $imageResource := resources.Get $imagePath }}
+  {{ $imageURL := $imagePath | absURL }} <!-- 默认使用原始路径 -->
+  {{ if $imageResource }}
+    {{ with $imageResource.Resize "1200x630 webp q90" }}
+      {{ $imageURL = .Permalink }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Open Graph for social media sharing */}}
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ truncate 160 . }}{{ else }}{{ with .Site.Params.description }}{{ truncate 160 . }}{{ end }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ $imageURL }}">
+  {{ if $imageResource }}
+    <meta property="og:image:width" content="{{ $imageResource.Width }}">
+    <meta property="og:image:height" content="{{ $imageResource.Height }}">
+  {{ end }}
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+
+  {{/* Twitter Card for Twitter sharing */}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . | truncate 160 }}{{ else }}{{ with .Site.Params.description }}{{ . | truncate 160 }}{{ end }}{{ end }}">  <meta name="twitter:image" content="{{ $imageURL }}">
+
+  {{/* Favicon and Touch Icons */}}
+  <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
+  <link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+
+  {{/* Core CSS */}}
+<!-- Bootstrap -->
+<link href="{{ "theme-assets/css/bootstrap.min.css" | absURL }}" rel="stylesheet">
+<link href="{{ "theme-assets/css/animate.css" | absURL }}" rel="stylesheet">
+<!-- Fontawesome -->
+<link href="{{ "theme-assets/css/font-awesome.css" | absURL }}" rel="stylesheet">
+<!-- Flaticons -->
+<link href="{{ "theme-assets/css/font/flaticon.css" | absURL }}" rel="stylesheet">
+<!-- Slick Slider -->
+<link href="{{ "theme-assets/css/slick.css" | absURL }}" rel="stylesheet">
+<!-- Range Slider -->
+<link href="{{ "theme-assets/css/ion.rangeSlider.min.css" | absURL }}" rel="stylesheet">
+<!-- Datepicker -->
+<link href="{{ "theme-assets/css/datepicker.css" | absURL }}" rel="stylesheet">
+<!-- magnific popup -->
+<link href="{{ "theme-assets/css/magnific-popup.css" | absURL }}" rel="stylesheet">
+<!-- Nice Select -->
+<link href="{{ "theme-assets/css/nice-select.css" | absURL }}" rel="stylesheet">
+<!-- Custom Stylesheet -->
+<link href="{{ "theme-assets/css/style.css" | absURL }}" rel="stylesheet">
+<!-- Custom Responsive -->
+<link href="{{ "theme-assets/css/responsive.css" | absURL }}" rel="stylesheet">
+
+  {{/* Conditional CSS for XZoom */}}
+{{ if .Params.use_xzoom }}
+  <link rel="stylesheet" href="{{ "css/xzoom.min.css" | absURL }}" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ "css/xzoom.min.css" | absURL }}"></noscript>
+{{ end }}
+
+  {{/* Structured Data (JSON-LD) for SEO */}}
+  {{ if .IsHome }}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ .Site.BaseURL }}/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+  {{ else }}
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ .Title }}",
+        "description": "{{ with .Description }}{{ truncate 160 . }}{{ else }}{{ with .Site.Params.description }}{{ truncate 160 . }}{{ end }}{{ end }}",
+        "url": "{{ .Permalink }}",
+        "datePublished": "{{ .Date.Format "2006-01-02" }}",
+        {{ if .Lastmod }}
+          "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+        {{ end }}
+        "author": {
+          "@type": "Organization",
+          "name": "{{ .Site.Title }}"
+        },
+        "image": "{{ $imageURL }}"
+      }
+    </script>
+      {{ end }}
+
+  {{/* Hugo Generator Tag */}}
+  {{ hugo.Generator }}

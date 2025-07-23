@@ -1,0 +1,26 @@
+{{ with .Site.Params.homepage.slider }}
+{{ if .enable }}
+<div class="slider p-relative">
+  <div class="main-banner arrow-layout-1 ">
+    {{ range $item := .items }} {{/* <--- 修改这里，给 item 起名叫 $item */}}
+    <div class="slide-item">
+      {{ with $item.image }}<img src="{{ . | absURL }}" class="image-fit" alt="Slider">{{ end }}
+      <div class="transform-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 wow fadeInLeft" data-wow-delay="0.2s">
+              <div class="slider-content">
+                {{ with $item.title }}<h1 class="text-custom-white">{{ . | safeHTML }}</h1>{{ end }}
+                {{ with $item.text }}<p class="text-custom-white">{{ . | markdownify }}</p>{{ end }}
+                {{ with $item.buttonText }}<a href="{{ $item.buttonLink | default "#" | absURL }}" class="btn-first btn-small">{{ . }}</a>{{ end }} {{/* <--- 修改这里，使用 $item.buttonLink */}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+{{ end }}

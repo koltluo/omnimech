@@ -1,0 +1,71 @@
+<div class="product-gallery">
+    <!-- Main Image -->
+    <div class="main-image mb-3">
+      <img src="{{ .Params.images.main | default "/images/default-product.jpg" | relURL }}" 
+           alt="{{ .Title }}" 
+           class="img-fluid w-100 rounded" 
+           id="productMainImage">
+    </div>
+    
+    <!-- Thumbnails -->
+    <div class="thumbnail-gallery">
+      <div class="row g-2">
+        {{ range .Params.images.gallery }}
+          <div class="col-3">
+            <a href="#" class="thumbnail-link" data-image="{{ . | relURL }}">
+              <img src="{{ . | relURL }}" 
+                   alt="{{ $.Title }}" 
+                   class="img-fluid rounded border">
+            </a>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  
+  <style>
+  .main-image {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .thumbnail-link {
+    display: block;
+    transition: all 0.3s;
+  }
+  
+  .thumbnail-link:hover {
+    opacity: 0.8;
+  }
+  
+  .thumbnail-link.active {
+    border-color: var(--custom-blue);
+  }
+  
+  .thumbnail-link img {
+    transition: all 0.3s;
+  }
+  
+  .thumbnail-link:hover img {
+    transform: scale(1.02);
+  }
+  </style>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Thumbnail click handler
+    document.querySelectorAll('.thumbnail-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const mainImage = document.getElementById('productMainImage');
+        mainImage.src = this.dataset.image;
+        
+        // Update active state
+        document.querySelectorAll('.thumbnail-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  });
+  </script>
+  

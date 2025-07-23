@@ -1,0 +1,37 @@
+{{ define "main" }}
+<!-- Subheader -->
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+        <ul class="custom-flex justify-content-center">
+          <li class="fw-500"><a href="{{ "/" | relURL }}" class="text-custom-white">Home</a></li>
+          <li class="active fw-500">{{ .Title }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product List Section -->
+<section class="section-padding bg-light-white">
+  <div class="container">
+    {{ if eq .Kind "section" }}
+      {{/* Use the layout specified in front matter or default to full width */}}
+      {{ $layout := .Params.layout | default "full" }}
+      {{ if eq $layout "left" }}
+        {{ partial "products/list.left.html" . }}
+      {{ else if eq $layout "right" }}
+        {{ partial "products/list.right.html" . }}
+      {{ else }}
+        {{ partial "products/list.full.html" . }}
+      {{ end }}
+    {{ else }}
+      {{/* For taxonomy pages, use full width */}}
+      {{ partial "products/list.full.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+

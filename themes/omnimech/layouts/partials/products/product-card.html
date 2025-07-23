@@ -1,0 +1,46 @@
+<div class="Product-grid mb-xl-30">
+    <div class="Product-grid-wrapper Product-grid bx-wrapper">
+      <div class="image-sec">
+        <a href="{{ .RelPermalink }}" target="_blank">
+          {{ with .Params.image }}
+            {{/* 假设图片路径在 front matter 的 image 字段中 */}}
+            <img src="{{ . | relURL }}" class="full-width" alt="{{ $.Title }}">
+          {{ else }}
+            {{/* 如果没有图片，显示占位图 */}}
+            <img src="{{ "assets/images/product-placeholder.jpg" | relURL }}" class="full-width" alt="{{ $.Title }}">
+          {{ end }}
+        </a>
+        {{/* 你可以保留或移除这里的社交图标等 */}}
+        <div class="img-bottom">
+          <ul>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fab fa-linkedin"></i></li>
+            <li><i class="fas fa-star"></i></li> {{/* 这里的 star 可能需要动态化 */}}
+          </ul>
+        </div>
+      </div>
+      <div class="Product-grid-caption padding-10 bg-custom-white p-relative text-center">
+        <h4 class="title fs-16"><a href="{{ .RelPermalink }}" class="text-custom-black" target="_blank">{{ .Title }}</a></h4>
+        {{/* 评分 - 需要在 Front Matter 中定义 rating 参数 */}}
+        {{ with .Params.rating }}
+        <ul>
+            {{ range seq . }}<li><i class="fas fa-star"></i></li>{{ end }}
+            {{ range seq (sub 5 .) }}<li><i class="far fa-star"></i></li>{{ end }} {{/* 显示空星 */}}
+        </ul>
+        {{ end }}
+        {{/* 价格 - 需要在 Front Matter 中定义 price 和 original_price 参数 */}}
+        {{ if and .Params.price .Params.original_price }}
+        <div class="price">
+          <h5> <del>${{ .Params.original_price }}</del> <span>${{ .Params.price }}</span> </h5>
+        </div>
+        {{ else if .Params.price }}
+         <div class="price">
+          <h5> <span>${{ .Params.price }}</span> </h5>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  

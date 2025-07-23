@@ -1,0 +1,89 @@
+{{ define "main" }}
+
+{{/* --- Subheader --- */}}
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/* --- Main Blog Section --- */}}
+<section class="section-padding our_articles bg-light-white">
+  <div class="container">
+    {{/* 1. 获取顶级的 "blog" 区段页面对象 */}}
+    {{ $mainBlogSection := .Site.GetPage "section" "blog" }}
+
+    {{/* 2. 准备一个变量来存储要分页的页面集合 */}}
+    {{ $pagesToPaginate := slice }}
+
+    {{/* 3. 判断当前页面是否为顶级 "blog" 区段页面 */}}
+    {{ if and $mainBlogSection (eq .RelPermalink $mainBlogSection.RelPermalink) }}
+      {{/* 是顶级 /blog/ 页面: 获取 'blog' 区段下的所有文章 */}}
+      {{ $pagesToPaginate = where .Site.RegularPages "Section" "blog" }}
+    {{ else }}
+      {{/* 不是顶级页面 (例如 /blog/category/): 只获取当前区段下的文章 */}}
+      {{ $pagesToPaginate = .RegularPages }}
+    {{ end }}
+
+    {{/* 4. 对选定的页面集合进行排序和分页 */}}
+    {{ $paginator := .Paginate ($pagesToPaginate.ByDate.Reverse) }}
+
+    {{/* 5. 根据布局参数渲染不同布局 */}}
+    {{ $layout := .Params.layout | default "grid" }}
+    {{ if eq .Kind "section" }}
+      {{ if eq $layout "grid" }}
+        {{/* --- Grid Layout --- */}}
+        <div class="row">
+          {{ range $paginator.Pages }}
+            {{ partial "blog-item.html" (dict "context" . "layout" "grid") }}
+          {{ end }}
+        </div>
+      {{ else if eq $layout "left-sidebar" }}
+        {{/* --- Left Sidebar Layout --- */}}
+        <div class="row">
+          {{ partial "blog-sidebar.html" . }}
+          <div class="col-lg-8">
+            <div class="row">
+              {{ range $paginator.Pages }}
+                {{ partial "blog-item.html" (dict "context" . "layout" "sidebar") }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      {{ else if eq $layout "right-sidebar" }}
+        {{/* --- Right Sidebar Layout --- */}}
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="row">
+              {{ range $paginator.Pages }}
+                {{ partial "blog-item.html" (dict "context" . "layout" "sidebar") }}
+              {{ end }}
+            </div>
+          </div>
+          {{ partial "blog-sidebar.html" . }}
+        </div>
+      {{ end }}
+    {{ else }}
+      {{/* For taxonomy or other non-section pages, use grid layout */}}
+      <div class="row">
+        {{ range $paginator.Pages }}
+          {{ partial "blog-item.html" (dict "context" . "layout" "grid") }}
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{/* --- Pagination --- */}}
+    <div class="row">
+      <div class="col-12">
+        {{ partial "pagination.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

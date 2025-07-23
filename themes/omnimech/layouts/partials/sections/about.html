@@ -1,0 +1,22 @@
+{{ with .Site.Params.homepage.about }}
+{{ if .enable }}
+<div class="aboutus-section section-padding" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mt-3 wow fadeInLeft">
+        <div class="aboutus">
+          {{ with .title }}<h2 class="aboutus-title">{{ . | safeHTML }}</h2>{{ end }}
+          {{ with .content }}<div class="aboutus-text">{{ . | markdownify }}</div>{{ end }}
+          {{ with .readMoreText }}<a class="aboutus-more" href="{{ $.Site.Params.homepage.about.readMoreLink | default "/about/" | absURL }}">{{ . }}</a>{{ end }}
+        </div>
+      </div>
+      <div class="col-lg-6 mt-3 wow fadeInRight">
+        {{ with .image }}
+        <div class="about-img"> <img src="{{ . | absURL }}" class="full-width" alt="About Us Image"> </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}

@@ -1,0 +1,424 @@
+# config.yaml
+
+# -- Site Settings --
+baseURL: "https://www.OmniMech.cc/" # !!! 修改为你的域名
+languageCode: "en-us" # 或 "zh-cn"
+title: "OmniMech - One-Stop Industrial Electrical Solutions & Sourcing" # 站点标题
+theme: "omnimech" # 主题名称
+copyright: "OmniMech © 2025. All Rights Reserved." # 页脚版权信息 (可选)
+
+pagination:
+  pagerSize: 12
+
+taxonomies:
+  category: categories  # 默认
+  tag: tags            # 默认
+  archive: archive      # 定义一个新的分类 (archive)
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+
+# -- Parameters (params) --
+params:
+  keywords: "industrial solutions, industrial electrical, power distribution, automation, smart factory, electrical equipment, energy management, control systems, switchgear, transformers, industrial components, global sourcing, OEM, electrical engineering, industrial automation, industrial products, electrical integration, energy storage, industrial supply, factory solutions, industrial services, global trade, industrial procurement, industrial maintenance, electrical safety" # Meta keywords
+  description: "EasyBuy Global (OmniMech) provides comprehensive industrial electrical solutions, including power distribution equipment, automation systems, and energy management products. We serve global customers with certified quality, fast delivery, and expert technical support, empowering industries to achieve efficient and reliable operations worldwide." # Meta description
+  logo: "/images/logo.png" # Header Logo路径 (相对于站点根目录)
+  bookingButton: # Header 上的按钮
+    text: "Booking Now"
+    url: "/booking/" # 链接到你的预订页面
+  twikooEnvId: "https://twikoo.nav8.top"
+
+  # -- Homepage Specific Parameters --
+  homepage:
+    # -- Slider Section --
+    slider:
+      enable: true
+      items:
+        - title: "We Offer  <span class=\"text-custom-blue\">Instant Response Service</span> "
+          text: "Our 24/7 support team stands by to resolve technical issues promptly and guide you on products, ensuring your operations run without a hitch."
+          buttonText: "Get Immediate Help"
+          buttonLink: "#about" # 链接目标
+          image: "/theme-assets/images/slider/1.jpg"
+        - title: "Discover <span class=\"text-custom-blue\">Tailored Electrical Solutions</span>"
+          text: "Backed by profound industry expertise, we craft customized electrical setups to meet your unique requirements for peak performance."
+          buttonText: "Customize My Solution"
+          buttonLink: "#services"
+          image: "/theme-assets/images/slider/2.jpg"
+        - title: "Rely on Our <span class=\"text-custom-blue\">Full Lifecycle Care</span>"
+          text: "From installation to upgrades, our comprehensive maintenance services safeguard product reliability and enhance your investment value."
+          buttonText: "Explore Lifecycle Services"
+          buttonLink: "#products"
+          image: "/theme-assets/images/slider/3.jpg"
+
+    # -- About Us Section --
+    about:
+      enable: true
+      title: "About Us"
+      content: | # 使用 | 可以保留换行符
+        As an industry pioneer with 15 years of deep expertise in industrial electricity, we inject strong momentum into industrial development with full-chain electrical solutions. From precision power distribution equipment to intelligent control systems, all products are certified by the ISO 9001 quality management system and tested to CE international standards. They feature an IP67 protection rating and excellent electromagnetic interference (EMI) resistance, ensuring stable operation under extreme conditions such as high temperature, high humidity, and high dust environments.
+
+        
+
+        Our product portfolio widely covers core sectors including power generation, smart factories, rail transit, and new energy storage. We have successfully provided customized electrical system integration services for over 300 large-scale industrial projects. Backed by a team of over 100 professional engineers, we offer 7×24 fast-response after-sales support, full-life-cycle equipment maintenance, and remote intelligent diagnostic services to ensure efficient equipment operation with zero worries.
+      readMoreText: "read more"
+      readMoreLink: "/about/" # 链接到关于页面
+      image: "/images/about.jpg"
+
+    # -- Categories Section --
+    categories:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Categories</span>"
+      description: "Our industrial electrical product categories cover power distribution equipment for efficient electricity management, control systems for automation, durable wiring and cables, protection devices against electrical faults, lighting solutions for hazardous environments, and equipment for integrating renewable energy sources into the grid."
+      items:
+        - icon: "fas fa-biohazard"
+          title: "Power Distribution Equipment"
+          details: "Essential for efficient electricity management, including switchgear, circuit breakers, and transformers, ensuring safe and reliable power transmission."
+          link: "#"
+        - icon: "fas fa-broadcast-tower"
+          title: "Renewable Energy Electrical Equipment"
+          details: "Inverters, charge controllers, and grid - tie systems that integrate solar, wind, or other renewable energy sources into the electrical grid."
+          link: "#"
+        - icon: "far fa-chart-bar"
+          title: "Electrical Wiring & Cables"
+          details: "High - performance conductors and cables designed for durability, flame resistance, and electrical insulation across various industrial applications."
+          link: "#"
+        - icon: "fab fa-codepen"
+          title: "Electrical Protection Devices"
+          details: "Surge protectors, fuses, and grounding systems safeguard equipment against voltage spikes, short circuits."
+          link: "#"
+        - icon: "fas fa-dna"
+          title: "Lighting Systems"
+          details: "Industrial - grade LED fixtures, explosion - proof lights, and emergency lighting solutions for enhanced visibility and safety in hazardous environments."
+          link: "#"
+        - icon: "fas fa-layer-group"
+          title: "Control Systems"
+          details: "Intelligent solutions like PLCs, HMIs, and motor control centers, enabling precise automation and monitoring of industrial processes."
+          link: "#"
+
+    # -- Services Section --
+    services:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Service</span>"
+      description: "Our services encompass 24/7 support for immediate issue resolution, customized electrical solutions tailored to unique requirements, comprehensive lifecycle maintenance for long - term equipment reliability, and a blend of global expertise with local - level service to ensure consistent quality, personalized assistance, and regional compliance."
+      items:
+        - icon: "far fa-check-square"
+          title: "Instant Response"
+          text: "Our team offers 24/7 support, swiftly resolving technical issues and providing product guidance to keep your operations uninterrupted."
+          link: "#"
+          active: true # 标记为激活状态
+        - icon: "fa fa-bed"
+          title: "Tailored Solutions"
+          text: "With deep industry know-how, we design customized electrical solutions, aligning every detail with your specific needs for top - notch performance."
+          link: "#"
+        - icon: "fas fa-chart-bar"
+          title: "Full Lifecycle Care"
+          text: "From installation to upgrades, our comprehensive maintenance services ensure long - term product reliability and maximize your investment."
+          link: "#"
+        - icon: "fa fa-shopping-cart"
+          title: "Global - Local Blend"
+          text: "Leverage our worldwide expertise and local insights. Our global experts ensure quality, while local teams offer personalized, compliant support."
+          link: "#"
+
+    # -- Products Section --
+    products:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Product</span>"
+      description: "Our products span a diverse range from power distribution gear ensuring seamless electricity flow, intelligent control systems optimizing industrial processes, to durable wiring, reliable protection devices, specialized lighting, and renewable energy integration equipment, all certified to international standards and engineered for superior performance in the harshest industrial environments."
+      items: # 注意：产品通常应该有自己的内容页面，这里只是演示放在首页
+        - image: "/images/VFD-Cabinet/1.jpg"
+          title: "Frequency converter control cabinet"
+          priceOld: "$186"
+          priceNew: "$118"
+          rating: 5 # 星级，可以用来生成星星图标
+          link: "/products/motor-driven/frequency-converter-control-cabinet/" # 链接到产品详情页
+        - image: "/images/online-soft-stater-cabinet/1.jpg"
+          title: "Online Soft Start Control Cabinet"
+          priceOld: "$232"
+          priceNew: "$192"
+          rating: 5
+          link: "/products/motor-driven/on-line-soft-start-control-cabinet/"
+        - image: "/images/online-soft-stater/1.jpg"
+          title: "Online soft starter"
+          priceOld: "$192"
+          priceNew: "$102"
+          rating: 5
+          link: "/products/motor-driven/soft-starter/"
+        - image: "/images/VFD/1.jpg"
+          title: "Three phase vector inverter"
+          priceOld: "$132"
+          priceNew: "$58"
+          rating: 5
+          link: "/products/motor-driven/vfd/"
+        - image: "/images/External-Bypass-soft-stater/1.jpg"
+          title: "External Bypass Soft Starter"
+          priceOld: "$232"
+          priceNew: "$92"
+          rating: 5
+          link: "/products/motor-driven/external-bypass-soft-starter/"
+
+    # -- Team Section --
+    team:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Team</span>"
+      description: "With keen market insight and efficient execution capabilities, we have established long-term partnerships with over 200 high-quality suppliers worldwide to ensure the traceability of genuine products and fast delivery."
+      members: # 团队成员也可能来自 content/team/ 目录
+        - name: "Zhang Ming"
+          position: "R&D Engineer"
+          image: "/theme-assets/images/team/1.jpg"
+          email: "mailto:sales@lyskjd.com"
+          social:
+            - icon: "fab fa-twitter"
+              url: "#"
+            - icon: "fab fa-pinterest"
+              url: "#"
+            - icon: "fab fa-instagram"
+              url: "#"
+            - icon: "fab fa-vimeo-v"
+              url: "#"
+        - name: "Li Na"
+          position: "Customer Service Manager"
+          image: "/theme-assets/images/team/2.jpg"
+          email: "mailto:sales@lyskjd.com"
+          social:
+            - icon: "fab fa-twitter"
+              url: "#"
+            - icon: "fab fa-pinterest"
+              url: "#"
+            - icon: "fab fa-instagram"
+              url: "#"
+            - icon: "fab fa-vimeo-v"
+              url: "#"
+        - name: "Wang Qiang"
+          position: "Production Supervisor"
+          image: "/theme-assets/images/team/3.jpg"
+          email: "mailto:sales@lyskjd.com"
+          social:
+            - icon: "fab fa-twitter"
+              url: "#"
+            - icon: "fab fa-pinterest"
+              url: "#"
+            - icon: "fab fa-instagram"
+              url: "#"
+            - icon: "fab fa-vimeo-v"
+              url: "#"
+
+    # -- Choose Us Section --
+    choose_us:
+      enable: true
+      title: "Why <span class=\"text-custom-blue\">Choose Us</span>"
+      description: "Choosing OmniMech unlocks a new experience in industrial electricity with leading technology and worry-free service."
+      items:
+        - icon: "fas fa-layer-group"
+          title: "Technological"
+          text: "Our R&D team pioneers tech frontiers, integrating smart control and IoT for efficient, innovative solutions, leading the industry."
+          linkText: "Read More"
+          link: "/about/"
+        - icon: "far fa-chart-bar"
+          title: "Quality Assurance"
+          text: "Certified products meet global standards, with high protection and anti-interference, ensuring stable operation in tough conditions."
+          linkText: "Read More"
+          link: "/about/"
+        - icon: "fas fa-database"
+          title: "Comprehensive Service"
+          text: "Over 100 engineers available 24/7 offer full lifecycle support, from custom solutions to after-sales, ensuring worry-free experience."
+          linkText: "Read More"
+          link: "/about/"
+        - icon: "fas fa-cogs"
+          title: "Rich Experience"
+          text: "15 years in industrial electrics, serving 300+ large projects. We precisely meet diverse needs, building trust with expertise."
+          linkText: "Read More"
+          link: "/about/"
+
+    # -- Blog Section --
+    blog_section:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Blog</span>"
+      description: "Our blog is your go - to destination, where we regularly share in - depth industry analyses, the latest trends in industrial electricity, expert tips for optimizing electrical systems, case studies showcasing successful solutions, and practical guides, empowering you to stay informed and make smart decisions for your projects."
+      numberOfPosts: 6 # 显示多少篇最新文章
+
+  # -- Footer Parameters --
+  footer:
+    logo: "/images/logo1.png" # Footer Logo
+    description: "The company offers a full range of industrial electrical products, specializing in soft starters, frequency converters, high/low voltage components, and complete equipment. With ample inventory and fast delivery, we provide tailored electrical solutions and premium technical services."
+    newsletter:
+      enable: true
+      title: "Newsletter"
+      description: "Subscribe to our newsletter for tailored industry insights, tech trends, and exclusive offers—delivered straight to your inbox."
+      formAction: "#" # 你的邮件订阅表单提交地址
+      placeholder: "Enter your email"
+      buttonText: "Subscribe"
+
+  # -- Social Media Links (used in footer) --
+  social:
+    - name: "Twitter"
+      icon: "fab fa-twitter"
+      url: ""
+      class: "twitter" # for styling
+    - name: "LinkedIn"
+      icon: "fab fa-linkedin-in"
+      url: ""
+      class: "linkedin"
+    - name: "Whatsapp"
+      icon: "fab fa-whatsapp"
+      url: ""
+      class: "whatsapp"
+    - name: "Facebook"
+      icon: "fab fa-facebook-f"
+      url: ""
+      class: "facebook"
+    - name: "Telegram"
+      icon: "fab fa-telegram-plane"
+      url: ""
+      class: "telegram"
+
+# -- Menu Configuration --
+menu:
+  main: # Header 导航
+    - name: Home
+      url: /
+      weight: 10
+    - name: Product
+      url: /products/ # 链接到产品列表页
+      weight: 20
+      identifier: product # 用于子菜单关联
+    - name: Motor Driven # 子菜单示例
+      parent: product # 关联到上面的 'product'
+      url: /products/Motor-Driven/
+      weight: 21
+    - name: Substation # 子菜单示例
+      parent: product
+      url: /products/Substation/
+      weight: 22
+    - name: High voltage components # 子菜单示例
+      parent: product
+      url: /products/High-voltage-components/
+      weight: 23
+    - name: High Voltage Switchgear Cabinet # 子菜单示例
+      parent: product
+      url: /products/High-Voltage-Switchgear-Cabinet/
+      weight: 24
+    - name: Low voltage Complete switch cabinet # 子菜单示例
+      parent: product
+      url: /products/Low-voltage-Complete-switch-cabinet/
+      weight: 25
+    - name: Low voltage components # 子菜单示例
+      parent: product
+      url: /products/Low-voltage-components/
+      weight: 26
+    - name: Smart electricity # 子菜单示例
+      parent: product
+      url: /products/Smart-electricity/
+      weight: 27
+    - name: Fire electrical # 子菜单示例
+      parent: product
+      url: /products/Fire-electrical/
+      weight: 28
+    - name: Blog
+      url: /blog/ # 链接到博客列表页
+      weight: 30
+      identifier: blog # 用于子菜单关联
+    - name: Industry Trends # 子菜单示例
+      parent: blog # 关联到上面的 'blog'
+      url: /blog/Industry-Trends/
+      weight: 31
+    - name: Technical Guides # 子菜单示例
+      parent: blog # 关联到上面的 'blog'
+      url: /blog/Technical-Guides/
+      weight: 32
+    - name: Case Studies # 子菜单示例
+      parent: blog # 关联到上面的 'blog'
+      url: /blog/Case-Studies/
+      weight: 33
+    - name: About
+      url: /about/ # 链接到关于页面
+      weight: 40
+    - name: FAQ
+      url: /faq/
+      weight: 50
+    - name: Gallery # 子菜单示例
+      url: /gallery/
+      weight: 60
+    - name: Contact
+      url: /contact/ # 链接到联系页面
+      weight: 70
+
+  footer1: # Footer 第一列链接
+    - name: Products Links # 列表标题 (会显示在 h4)
+      weight: 1
+      identifier: useful
+    - name: Motor driven
+      parent: useful
+      url: /products/motor-driven/
+      weight: 2
+    - name: Substation
+      parent: useful
+      url: /products/substation/
+      weight: 3
+    - name: High voltage components
+      parent: useful
+      url: /products/high-voltage-components/
+      weight: 4
+    - name: High voltage switchgear cabinet
+      parent: useful
+      url: /products/high-voltage-switchgear-cabinet/
+      weight: 5
+    - name: Low voltage complete switch cabinet
+      parent: useful
+      url: /products/low-voltage-complete-switch-cabinet/
+      weight: 6
+    - name: Low voltage components
+      parent: useful
+      url: /products/low-voltage-components/
+      weight: 7
+
+
+  footer2: # Footer 第二列链接
+    - name: Quick Links
+      weight: 1
+      identifier: other
+    - name: Gallery
+      parent: other
+      url: /gallery/
+      weight: 2
+    - name: Blog
+      parent: other
+      url: /blog/
+      weight: 3
+    - name: Contact Us
+      parent: other
+      url: /contact/
+      weight: 4
+    - name: FAQ
+      parent: other
+      url: /faq/
+      weight: 5
+    - name: About Us
+      parent: other
+      url: /about/
+      weight: 6
+    - name: Terms & Conditions
+      parent: other
+      url: /terms/
+      weight: 7
+
+outputFormats:
+  json:
+    baseName: "index"           # 文件名
+    isPlainText: true           # 纯文本格式
+    mediaType: "application/json"  # MIME 类型
+    path: "search"              # 生成路径为 /search/index.json
+
+outputs:
+  home:                        # 首页输出格式
+    - "HTML"                   # 生成 HTML
+    - "JSON"                   # 生成 JSON 文件，用于搜索
+    - "RSS"                    # 生成 RSS
+  section:                     # 分类页输出格式
+    - "HTML"
+    - "RSS"
+  page:                        # 单页输出格式
+    - "HTML"

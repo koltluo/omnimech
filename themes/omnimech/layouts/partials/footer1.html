@@ -1,0 +1,63 @@
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 wow fadeInLeft">
+          {{ with .Site.Params.footer.logo }}
+          <a href="{{ site.BaseURL | absURL }}"> <img src="{{ . | absURL }}" alt="Footer Logo"> </a>
+          {{ end }}
+          {{ with .Site.Params.footer.description }}
+          <p class="mt-3 text-white">{{ . | markdownify }}</p>
+          {{ end }}
+          {{ with .Site.Params.social }}
+          <ul class="social-link">
+            {{ range . }}
+            <li><a href="{{ .url }}" class="{{ .class }}"><i class="{{ .icon }}"></i></a></li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </div>
+        {{ range .Site.Menus.footer1 }}
+        <div class="col-lg-3 col-md-6 offset-md-1 offset-lg-1 wow fadeInDown">
+          <h4 class="footer-title">{{ .Name }}</h4>
+          <ul class="footer-link">
+              {{ range .Children }}
+              <li><a href="{{ .URL | absURL }}" class="text-white"><i class="fas fa-chevron-right"></i> {{ .Name }}</a></li>
+              {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+         {{ range .Site.Menus.footer2 }}
+        <div class="col-lg-3 col-md-6 wow fadeInRight">
+          <h4 class="footer-title">{{ .Name }}</h4>
+          <ul class="footer-link">
+              {{ range .Children }}
+              <li><a href="{{ .URL | absURL }}" class="text-white"><i class="fas fa-chevron-right"></i> {{ .Name }}</a></li>
+              {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+  
+        {{ with .Site.Params.footer.newsletter }}
+        <div class="col-lg-3 col-md-6 wow fadeInRight">
+          <h4 class="footer-title">{{ .title }}</h4>
+          <p class="text-custom-white">{{ .description }}</p>
+<!-- 添加你的表单 HTML 这里, 可能链接到一个表单服务 -->
+<form action="https://formspree.io/f/xnqeqzqg" method="POST">  <!--  重要：将 "method" 改为 "POST"  -->
+  <div class="form-group">
+    <input type="email" name="email" class="form-control form-control-custom" placeholder="{{ .placeholder | default "Email I'd" }}" required="">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn-first btn-submits">{{ .buttonText | default "Subscribe" }}</button>
+  </div>
+  <!--  可选： 添加隐藏字段，例如 "_next"  用于重定向， "_subject" 用于设置邮件主题 -->
+  <input type="hidden" name="_next" value="https://www.lyskjd.com">  <!--  将 "YOUR_SUCCESS_PAGE_URL" 替换为成功页面 URL  -->
+  <input type="hidden" name="_subject" value="New Subscription">
+</form>
+
+        </div>
+        {{ end }}
+      </div>
+      <p class="copyright">{{ .Site.Copyright | default (printf "© %d %s. All Rights Reserved." now.Year .Site.Title) | safeHTML }}</p>
+    </div>
+  </footer>
+  

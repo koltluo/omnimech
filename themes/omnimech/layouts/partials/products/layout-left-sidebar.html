@@ -1,0 +1,34 @@
+{{ $paginator := .paginator }}
+{{ $context := .context }}
+
+
+<section class="section-padding bg-light-white">
+  <div class="container">
+    <div class="row">
+      <!-- 左侧边栏 -->
+      <aside class="col-lg-4 wow fadeInLeft">
+        {{ partial "products/sidebar.html" . }}
+      </aside>
+      <!-- /左侧边栏 -->
+
+      <!-- 产品列表区域 -->
+      <div class="col-lg-8 wow fadeInRight">
+        <div class="row">
+            {{ range $index, $page := $paginator.Pages }} {{/* 获取索引 $index 和页面 $page */}}
+            <div class="col-md-6 wow {{ if eq (mod $index 2) 0 }}fadeInLeft{{ else }}fadeInRight{{ end }}"> {{/* 使用 $index (0-based) 进行判断 */}}
+              {{ partial "products/product-card.html" $page }} {{/* 传递 $page 给 partial */}}
+            </div>
+          {{ end }}
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- 分页导航 -->
+                {{ partial "products/pagination.html" . }}
+            </div>
+        </div>
+      </div>
+      <!-- /产品列表区域 -->
+    </div>
+  </div>
+</section>

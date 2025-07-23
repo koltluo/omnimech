@@ -1,0 +1,16 @@
+{{ $paginator := .Paginator }}
+<div class="listing-top-heading mb-xl-20">
+  <h6 class="no-margin text-custom-black">共找到 {{ $paginator.TotalNumberOfElements }} 个结果 {{ if gt $paginator.TotalPages 1 }}(第 {{ $paginator.PageNumber }}/{{ $paginator.TotalPages }} 页){{ end }}</h6>
+  <div class="sort-by">
+    <span class="text-custom-black fs-14 fw-600">排序</span>
+    <div class="group-form">
+      {{/* 排序功能需要 JS 或后端支持，这里仅为静态结构 */}}
+      <select class="form-control form-control-custom custom-select">
+        <option>默认排序</option>
+        <option>按价格升序</option>
+        <option>按价格降序</option>
+        <option>按名称 A-Z</option>
+      </select>
+    </div>
+  </div>
+</div>

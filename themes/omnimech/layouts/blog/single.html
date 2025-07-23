@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ $layout := .Params.layout | default "full" }}
+
+<!-- Subheader -->
+{{/* layouts/partials/breadcrumb_styled.html */}}
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog Content -->
+<section class="section-padding bg-light-white blog-details">
+  <div class="container">
+    <div class="row">
+      {{ if eq $layout "left" }}
+        <!-- Left Sidebar Layout -->
+        <aside class="col-lg-4">
+          {{ partial "blog/sidebar.html" . }}
+        </aside>
+        <div class="col-lg-8">
+          {{ partial "blog/single-content.html" . }}
+        </div>
+      
+      {{ else if eq $layout "right" }}
+        <!-- Right Sidebar Layout -->
+        <div class="col-lg-8">
+          {{ partial "blog/single-content.html" . }}
+        </div>
+        <aside class="col-lg-4">
+          {{ partial "blog/sidebar.html" . }}
+        </aside>
+      
+      {{ else }}
+        <!-- Full Width Layout (Default) -->
+        <div class="col-12">
+          {{ partial "blog/single-content.html" . }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

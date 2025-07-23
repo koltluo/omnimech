@@ -1,0 +1,71 @@
+{{ define "main" }}
+<!-- Subheader -->
+{{/* layouts/partials/breadcrumb_styled.html */}}
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Categories Content -->
+<section class="section-padding bg-light-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="categories-container bx-wrapper bg-custom-white padding-20">
+          <h2 class="text-custom-black mb-4">All Categories</h2>
+          
+          <div class="row">
+            {{ range .Data.Terms.ByCount }}
+              <div class="col-md-6 mb-4">
+                <div class="category-card bg-light-white p-4 h-100">
+                  <div class="d-flex align-items-center mb-3">
+                    <h3 class="category-title mb-0">
+                      <a href="{{ .Page.RelPermalink }}" class="text-custom-black">
+                        {{ .Page.Title }}
+                      </a>
+                    </h3>
+                    <span class="badge bg-custom-blue text-white ml-auto">
+                      {{ .Count }}
+                    </span>
+                  </div>
+                  
+                  {{ $recent := first 3 .Pages }}
+                  <ul class="category-posts list-unstyled">
+                    {{ range $recent }}
+                      <li class="mb-2">
+                        <a href="{{ .RelPermalink }}" class="text-light-dark d-flex">
+                          <span class="mr-2">•</span>
+                          <span class="text-truncate">{{ .Title }}</span>
+                        </a>
+                      </li>
+                    {{ end }}
+                    {{ if gt (len .Pages) 3 }}
+                      <li>
+                        <a href="{{ .Page.RelPermalink }}" class="text-custom-blue">
+                          + {{ sub (len .Pages) 3 }} more...
+                        </a>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        {{ partial "blog/sidebar.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

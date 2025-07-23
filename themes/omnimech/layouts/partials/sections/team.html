@@ -1,0 +1,47 @@
+{{ with .Site.Params.homepage.team }}
+{{ if .enable }}
+<section id="team" class="team-area section-padding">
+  <div class="container">
+    <div class="section-header text-center ">
+      <div class="section-heading">
+        {{ with .title }}<h3 class="text-custom-black">{{ . | safeHTML }}</h3>{{ end }}
+        {{ with .description }}<div class="section-description"><p class="text-light-dark">{{ . | markdownify }}</p></div>{{ end }}
+      </div>
+    </div>
+    <div class="row team-items">
+      {{ range $index, $member := .members }}
+      {{/* Determine animation based on index (e.g., left, down, right) */}}
+      {{ $animation := "fadeInLeft" }}
+      {{ if eq (mod $index 3) 1 }}{{ $animation = "fadeInDown" }}{{ end }}
+      {{ if eq (mod $index 3) 2 }}{{ $animation = "fadeInRight" }}{{ end }}
+
+      <div class=" col-lg-4 col-md-6 single-item wow {{ $animation }}">
+        <div class="item">
+          <div class="thumb">
+            {{ with $member.image }}<img class="img-fluid" src="{{ . | absURL }}" alt="{{ $member.name | default "Team member photo" }}">{{ end }}
+            <div class="overlay">
+              {{ with $member.name }}<h4>{{ . }}</h4>{{ end }}
+              {{ with $member.social }}
+              <div class="social">
+                <ul class="p-0">
+                  {{ range . }}
+                  <li class="{{ .class | default "" }}"> <a href="{{ .url | default "#" | absURL }}" target="_blank" rel="noopener noreferrer"><i class="{{ .icon }}"></i></a> </li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+          <div class="info">
+            {{ with $member.email }}<span class="message"> <a href="{{ . }}"><i class="fas fa-envelope-open"></i></a> </span>{{ end }}
+            {{ with $member.name }}<h4>{{ . }}</h4>{{ end }}
+            {{ with $member.position }}<span>{{ . }}</span>{{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

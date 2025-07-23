@@ -1,0 +1,49 @@
+<header class="header">
+    <div class="navigation-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav>
+              <div class="main-navigation">
+                <div class="logo">
+                  <a href="{{ .Site.BaseURL | absURL }}">
+                    {{ with .Site.Params.logo }}
+                      <img src="{{ . | absURL }}" class="img-fluid" alt="logo">
+                    {{ else }}
+                      {{ .Site.Title }} <!-- Fallback to site title if no logo -->
+                    {{ end }}
+                  </a>
+                </div>
+                <div class="main-menu">
+                  <ul class="custom-flex">
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                      <li class="menu-item {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }} {{ if .HasChildren }}menu-item-has-children{{ end }}">
+                        <a href="{{ .URL | absURL }}">{{ .Name }}</a>
+                        {{ if .HasChildren }}
+                          <ul class="submenu custom">
+                            {{ range .Children }}
+                              <li class="menu-item {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                                <a href="{{ .URL | absURL }}">{{ .Name }}</a>
+                              </li>
+                            {{ end }}
+                          </ul>
+                        {{ end }}
+                      </li>
+                    {{ end }}
+                    {{ with .Site.Params.bookingButton }}
+                    <li class="book-appointment"> <a href="{{ .url | absURL }}">{{ .text }}</a> </li>
+                    {{ end }}
+                  </ul>
+                </div>
+                <div class="hamburger-menu">
+                  <div class="menu-btn"> <span></span> <span></span> <span></span> </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  

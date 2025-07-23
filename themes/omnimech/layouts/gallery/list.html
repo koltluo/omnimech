@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<!-- Start Subheader -->
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>  <!-- 使用 .Title 获取页面标题，定义在 content/gallery/_index.md 或者gallery.md中 -->
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subheader -->
+
+<!-- Start gallery -->
+<section class="section-padding gallery">
+  <div class="section-header text-center">
+    <div class="section-heading">
+      <h3 class="text-custom-black">Our <span class="text-custom-blue">Gallry</span></h3>
+      <div class="section-description">
+        <p class="text-light-dark">{{ .Content }}</p>  <!-- 使用 .Content 获取页面内容，定义在 content/gallery/_index.md或者 gallery.md中 -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="tabs filter-gallery">
+        <ul class="custom-flex nav nav-tabs mb-xl-40">
+          <li class="nav-item"> <a class="nav-link active" href="#" data-filter="*">Show All</a> </li>  <!-- 暂时保留，稍后添加动态tag-->
+          <!--  动态生成标签:  你可以根据你的内容组织方式，动态生成标签 -->
+          {{ $tags := slice  }}  <!--  创建一个用于收集标签的切片 -->
+          {{ range .Pages }}  <!-- 遍历所有页面，获取所有tag -->
+              {{ if isset .Params "tags" }}  <!-- 检查是否设置了 tags  -->
+                  {{ $tags = $tags | union .Params.tags }}
+              {{ end }}
+          {{ end }}
+          {{ range $tag := $tags }}
+            <li class="nav-item"> <a class="nav-link" href="#" data-filter=".{{ $tag | urlize }}">{{ $tag }}</a> </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="row gallery-grid">
+        <!--  循环显示 gallery 图片 -->
+        {{ range .Pages }}  <!--  循环遍历 gallery 页面  -->
+          <div class="col-lg-4 col-md-6 filter-box {{ range .Params.tags }} {{ . | urlize }} {{ end }} p-0 m-0">  <!--  为每个图片添加tag，用于过滤  -->
+            <div class="gallery-item animate-img">
+              <a href="{{ .Params.image | absURL }}" class="popup">  <!--  使用 .Params.image 获取图片，绝对 URL  -->
+                <img src="{{ .Params.image | absURL }}" class="image-fit" alt="{{ .Title }}">
+              </a>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        {{ partial "pagination.html" . }} {{/* Use the pagination partial created earlier */}}
+      </div>
+    </div> 
+  </div>
+</section>
+<!-- End gallery -->
+
+{{ end }}

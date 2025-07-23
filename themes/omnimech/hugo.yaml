@@ -1,0 +1,379 @@
+# config.yaml
+
+# -- Site Settings --
+baseURL: "https://www.omnimech.cc/" # !!! 修改为你的域名
+languageCode: "en-us" # 或 "zh-cn"
+title: "OmniMech - Industrial Solutions" # 站点标题
+theme: "omnimech" # 主题名称
+copyright: "OmniMech © 2025. All Rights Reserved." # 页脚版权信息 (可选)
+
+taxonomies:
+  category: categories  # 默认
+  tag: tags            # 默认
+  brand: brands        # 定义一个新的分类 (brand)
+  vendor: vendors      # 定义一个新的分类 (vendor)
+  archive: archive      # 定义一个新的分类 (archive)
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+
+# -- Parameters (params) --
+params:
+  keywords: "industry, factory, solution, mechanical, energy" # Meta keywords
+  description: "OmniMech provides leading industrial factory solutions and services." # Meta description
+  logo: "/theme-assets/images/logo.png" # Header Logo路径 (相对于站点根目录)
+  bookingButton: # Header 上的按钮
+    text: "Booking Now"
+    url: "/booking/" # 链接到你的预订页面
+  twikooEnvId: "https://twikoo.nav8.top"
+
+  # -- Homepage Specific Parameters --
+  homepage:
+    # -- Slider Section --
+    slider:
+      enable: true
+      items:
+        - title: "We Are Industry <span class=\"text-custom-blue\">Factory</span> Solution"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+          buttonText: "Find Out More"
+          buttonLink: "#about" # 链接目标
+          image: "/theme-assets/images/slider/slider-5.jpg"
+        - title: "Economy Needs A Healthy <span class=\"text-custom-blue\">Industry</span>"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+          buttonText: "Find Out More"
+          buttonLink: "#services"
+          image: "/theme-assets/images/slider/slider-2.jpg"
+        - title: "A company involved in service <span class=\"text-custom-blue\">maintenance</span>"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+          buttonText: "Find Out More"
+          buttonLink: "#products"
+          image: "/theme-assets/images/slider/slider-4.jpg"
+
+    # -- About Us Section --
+    about:
+      enable: true
+      title: "About Us"
+      content: | # 使用 | 可以保留换行符
+        Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+
+        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.
+
+        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+      readMoreText: "read more"
+      readMoreLink: "/about/" # 链接到关于页面
+      image: "/theme-assets/images/about.jpg"
+
+    # -- Categories Section --
+    categories:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Categories</span>"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+      items:
+        - icon: "fas fa-biohazard"
+          title: "Mechanical Works"
+          details: "(3 Open Vacancies)"
+          link: "#"
+        - icon: "fas fa-broadcast-tower"
+          title: "Power & Energy"
+          details: "(2 Open Vacancies)"
+          link: "#"
+        - icon: "far fa-chart-bar"
+          title: "Oil & Gas Industry"
+          details: "(13 Open Vacancies)"
+          link: "#"
+        - icon: "fab fa-codepen"
+          title: "Petroleum Refinery"
+          details: "(22 Open Vacancies)"
+          link: "#"
+        - icon: "fas fa-dna"
+          title: "Chemical Research"
+          details: "(18 Open Vacancies)"
+          link: "#"
+        - icon: "fas fa-layer-group"
+          title: "Automat Manufactur"
+          details: "(4 Open Vacancies)"
+          link: "#"
+
+    # -- Services Section --
+    services:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Service</span>"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+      items:
+        - icon: "far fa-check-square"
+          title: "Mechanical Works"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          link: "#"
+          active: true # 标记为激活状态
+        - icon: "fa fa-bed"
+          title: "Power & Energy"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          link: "#"
+        - icon: "fas fa-chart-bar"
+          title: "Petroleum Refinery"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          link: "#"
+        - icon: "fa fa-shopping-cart"
+          title: "Oil & Gas Industry"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          link: "#"
+
+    # -- Products Section --
+    products:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Product</span>"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+      items: # 注意：产品通常应该有自己的内容页面，这里只是演示放在首页
+        - image: "/theme-assets/images/product/iteam-1.jpg"
+          title: "Checked Short Dress"
+          priceOld: "$232"
+          priceNew: "$192"
+          rating: 5 # 星级，可以用来生成星星图标
+          link: "/products/product-1/" # 链接到产品详情页
+        - image: "/theme-assets/images/product/iteam-2.jpg"
+          title: "Slim Fit Chinos"
+          priceOld: "$232"
+          priceNew: "$192"
+          rating: 5
+          link: "/products/product-2/"
+        - image: "/theme-assets/images/product/iteam-3.jpg"
+          title: "Dark Brown Boots"
+          priceOld: "$232"
+          priceNew: "$192"
+          rating: 5
+          link: "/products/product-3/"
+        - image: "/theme-assets/images/product/iteam-4.jpg"
+          title: "Light Blue Denim Dress"
+          priceOld: "$232"
+          priceNew: "$192"
+          rating: 5
+          link: "/products/product-4/"
+        - image: "/theme-assets/images/product/iteam-5.jpg"
+          title: "Green Trousers"
+          priceOld: "$232"
+          priceNew: "$192"
+          rating: 5
+          link: "/products/product-5/"
+
+    # -- Team Section --
+    team:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Team</span>"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+      members: # 团队成员也可能来自 content/team/ 目录
+        - name: "Nashid Martines"
+          position: "Project Manager"
+          image: "/theme-assets/images/team/team-1.jpg"
+          email: "mailto:nashid@example.com"
+          social:
+            - icon: "fab fa-twitter"
+              url: "#"
+            - icon: "fab fa-pinterest"
+              url: "#"
+            - icon: "fab fa-instagram"
+              url: "#"
+            - icon: "fab fa-vimeo-v"
+              url: "#"
+        - name: "Konne Backfield"
+          position: "Developer"
+          image: "/theme-assets/images/team/team-2.jpg"
+          email: "mailto:konne@example.com"
+          social:
+            - icon: "fab fa-twitter"
+              url: "#"
+            - icon: "fab fa-pinterest"
+              url: "#"
+            - icon: "fab fa-instagram"
+              url: "#"
+            - icon: "fab fa-vimeo-v"
+              url: "#"
+        - name: "James Aderson"
+          position: "Designer"
+          image: "/theme-assets/images/team/team-3.jpg"
+          email: "mailto:james@example.com"
+          social:
+            - icon: "fab fa-twitter"
+              url: "#"
+            - icon: "fab fa-pinterest"
+              url: "#"
+            - icon: "fab fa-instagram"
+              url: "#"
+            - icon: "fab fa-vimeo-v"
+              url: "#"
+
+    # -- Choose Us Section --
+    choose_us:
+      enable: true
+      title: "Why <span class=\"text-custom-blue\">Choose Us</span>"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+      items:
+        - icon: "fas fa-layer-group"
+          title: "Material Engineering"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry..."
+          linkText: "Read More"
+          link: "#"
+        - icon: "far fa-chart-bar"
+          title: "Petroleum Engineering"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry..."
+          linkText: "Read More"
+          link: "#"
+        - icon: "fas fa-database"
+          title: "Agricultural Processing"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry..."
+          linkText: "Read More"
+          link: "#"
+        - icon: "fas fa-cogs"
+          title: "Service And Processing"
+          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry..."
+          linkText: "Read More"
+          link: "#"
+
+    # -- Blog Section --
+    blog_section:
+      enable: true
+      title: "Our <span class=\"text-custom-blue\">Blog</span>"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+      numberOfPosts: 4 # 显示多少篇最新文章
+
+  # -- Footer Parameters --
+  footer:
+    logo: "/theme-assets/images/logo-1.png" # Footer Logo
+    description: "Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc."
+    newsletter:
+      enable: true
+      title: "Newsletter"
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      formAction: "#" # 你的邮件订阅表单提交地址
+      placeholder: "Enter your email"
+      buttonText: "Subscribe"
+
+  # -- Social Media Links (used in footer) --
+  social:
+    - name: "Twitter"
+      icon: "fab fa-twitter"
+      url: ""
+      class: "twitter" # for styling
+    - name: "LinkedIn"
+      icon: "fab fa-linkedin-in"
+      url: ""
+      class: "linkedin"
+    - name: "Whatsapp"
+      icon: "fab fa-whatsapp"
+      url: ""
+      class: "whatsapp"
+    - name: "Facebook"
+      icon: "fab fa-facebook-f"
+      url: ""
+      class: "facebook"
+    - name: "Telegram"
+      icon: "fab fa-telegram-plane"
+      url: ""
+      class: "telegram"
+
+# -- Menu Configuration --
+menu:
+  main: # Header 导航
+    - name: Home
+      url: /
+      weight: 10
+    - name: Product
+      url: /products/ # 链接到产品列表页
+      weight: 20
+      identifier: product # 用于子菜单关联
+    - name: Full Width # 子菜单示例
+      parent: product # 关联到上面的 'product'
+      url: /products/
+      weight: 21
+    - name: Left Sidebar # 子菜单示例
+      parent: product
+      url: /products/left-sidebar/
+      weight: 22
+    - name: Right Sidebar # 子菜单示例
+      parent: product
+      url: /products/right-sidebar/
+      weight: 23
+    - name: Blog
+      url: /blog/ # 链接到博客列表页
+      weight: 30
+      identifier: blog # 用于子菜单关联
+    - name: Left sidebar # 子菜单示例
+      parent: blog # 关联到上面的 'blog'
+      url: /blog/left-sidebar/
+      weight: 31
+    - name: Right sidebar # 子菜单示例
+      parent: blog # 关联到上面的 'blog'
+      url: /blog/right-sidebar/
+      weight: 32
+    - name: About
+      url: /about/ # 链接到关于页面
+      weight: 40
+    - name: Pages
+      weight: 50
+      identifier: pages
+    - name: FAQ # 子菜单示例
+      parent: pages
+      url: /faq/
+      weight: 51
+    - name: Gallery # 子菜单示例
+      parent: pages
+      url: /gallery/
+      weight: 52
+    - name: Contact
+      url: /contact/ # 链接到联系页面
+      weight: 60
+
+  footer1: # Footer 第一列链接
+    - name: Useful Links # 列表标题 (会显示在 h4)
+      weight: 1
+      identifier: useful
+    - name: FAQ
+      parent: useful
+      url: /faq/
+      weight: 2
+    - name: About Us
+      parent: useful
+      url: /about/
+      weight: 3
+    - name: Blog
+      parent: useful
+      url: /blog/
+      weight: 4
+
+  footer2: # Footer 第二列链接
+    - name: Other Links
+      weight: 1
+      identifier: other
+    - name: Gallery
+      parent: other
+      url: /gallery/
+      weight: 2
+    - name: Contact Us
+      parent: other
+      url: /contact/
+      weight: 3
+    - name: Terms & Conditions
+      parent: other
+      url: /terms/
+      weight: 4
+
+outputFormats:
+  json:
+    baseName: "index"           # 文件名
+    isPlainText: true           # 纯文本格式
+    mediaType: "application/json"  # MIME 类型
+    path: "search"              # 生成路径为 /search/index.json
+
+outputs:
+  home:                        # 首页输出格式
+    - "HTML"                   # 生成 HTML
+    - "JSON"                   # 生成 JSON 文件，用于搜索
+    - "RSS"                    # 生成 RSS
+  section:                     # 分类页输出格式
+    - "HTML"
+    - "RSS"
+  page:                        # 单页输出格式
+    - "HTML"

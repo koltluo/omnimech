@@ -1,0 +1,60 @@
+{{ $related := slice }}
+{{/* 1. 获取当前页面的标签 (从传入的 context `.`) */}}
+{{ $currentPageTags := .Params.tags }}
+
+{{/* 2. 确保当前页面有标签，并且标签数组不为空 */}}
+{{ if and $currentPageTags (gt (len $currentPageTags) 0) }}
+
+  {{/* 3. 找到所有类型为 "products" 的页面，并进行过滤 */}}
+  {{ $allProducts := where site.RegularPages "Type" "products" }}
+
+  {{/* 4. 循环所有产品页面，对每一个产品进行检查，如果标签与当前页面有交集则加入 $related  */}}
+  {{ range $allProducts }}
+
+    {{/* 5. 获取当前循环的产品页面的标签  */}}
+    {{ $productTags := .Params.tags }}
+
+    {{/* 6. 如果这个产品页面有 tags 且与当前页面有交集 */}}
+    {{ if and $productTags (gt (len $productTags) 0) (intersect $currentPageTags $productTags) }}
+      {{ $related = $related | append . }} {{/* 将匹配的产品页面添加到 $related 列表 */}}
+    {{ end }}
+
+  {{ end }}
+
+  {{/* 7.  排除当前页面本身 */}}
+  {{ $related = $related | intersect (where site.RegularPages ".File.UniqueID" "!=" .File.UniqueID) }}
+
+{{ end }}
+
+{{/* 8. 检查找到的相关的商品数量是否大于0  */}}
+{{ if gt (len $related) 0 }}
+<section class="section-row related-products">
+  <h2 class="heading-title"><span>Related Products</span></h2>
+  <div class="gallery-container gallery-columns-4"> {{/* Adjust columns as needed */}}
+    {{ range first 4 $related }} {{/* Limit display to first 4 */}}
+      <figure class="item-content highlight">
+        <div class="item-grid-box">
+          <a href="{{ .RelPermalink }}">
+            <div class="item-cover">
+              <div class="attachment">
+                <div class="thumbnail">
+                  <div class="centered">
+                    {{ $relatedImage := .Resources.GetMatch (printf "*%s*" (.Params.image | default "default.jpg")) }}
+                    {{ if $relatedImage }}
+                    <img width="300" height="300" src="{{ ($relatedImage.Resize "300x300").RelPermalink }}" class="attachment-medium size-medium wp-post-image lazyload" alt="{{ .Title }}" title="{{ .Title }}" decoding="async" />
+                    {{ else }}
+                     <img width="300" height="300" src="/images/placeholder.jpg" class="attachment-medium size-medium wp-post-image lazyload" alt="{{ .Title }}" title="{{ .Title }}" decoding="async" />
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+              <i class="mask"></i>
+            </div>
+            <figcaption><h3>{{ .Title }}</h3></figcaption>
+          </a>
+        </div>
+      </figure>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

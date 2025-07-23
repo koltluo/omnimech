@@ -1,0 +1,33 @@
+{{ with .Site.Params.homepage.choose_us }}
+{{ if .enable }}
+<section class="choose-grid section-padding bg-light-white">
+  <div class="container">
+    <div class="section-header text-center ">
+      <div class="section-heading">
+        {{ with .title }}<h3 class="text-custom-black">{{ . | safeHTML }}</h3>{{ end }}
+        {{ with .description }}<div class="section-description"><p class="text-light-dark">{{ . | markdownify }}</p></div>{{ end }}
+      </div>
+    </div>
+    <div class="row">
+      {{ range $index, $item := .items }}
+      {{/* Determine animation based on index */}}
+      {{ $animation := "" }}
+      {{ if eq $index 0 }}{{ $animation = "fadeInLeft" }}{{ end }}
+      {{ if eq $index 1 }}{{ $animation = "fadeInDown" }}{{ end }}
+      {{ if eq $index 2 }}{{ $animation = "fadeInUp" }}{{ end }}
+      {{ if eq $index 3 }}{{ $animation = "fadeInRight" }}{{ end }}
+
+      <div class="col-lg-3 col-md-6 text-center mb-3 wow {{ $animation }}">
+        <div class="choose-wrap">
+          {{ with $item.icon }}<div class="choose-icon"> <i class="{{ . }}"></i> </div>{{ end }}
+          {{ with $item.title }}<h4>{{ . }}</h4>{{ end }}
+          {{ with $item.text }}<p>{{ . | markdownify }}</p>{{ end }}
+          {{ with $item.linkText }}<a href="{{ $item.link | default "#" | absURL }}">{{ . }}</a>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

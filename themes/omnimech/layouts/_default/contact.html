@@ -1,0 +1,100 @@
+{{ define "main" }}
+  <!-- Start Subheader -->
+  <div class="subheader normal-bg section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 wow fadeInDown">
+          <h1 class="text-custom-white">Contact Us</h1>
+  {{ partial "breadcrumb.html" . }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Subheader -->
+
+  <!-- Start Contact top -->
+  <section class="section-padding bg-light-white contact-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
+          <div class="contact-info-box mb-md-40"> <i class="flaticon-placeholder"></i>
+            <h6 class="text-theme fw-600"> Lanshan District, Linyi City,
+Shandong Province, China</h6>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="contact-info-box mb-md-40"> <i class="flaticon-telephone-1"></i>
+            <h6 class="text-theme fw-600"><a href="https://wa.me/+8615064999739?text=Hello" class="text-theme">(+86) 150 6499 9739</a><br>
+              Mon-Sat 9:00am-5:00pm</h6>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="contact-info-box"> <i class="flaticon-envelope"></i>
+            <h6 class="text-theme fw-600"><a href="mailto:sales@lyskjd.com" class="text-theme">sales@lyskjd.com</a><br>
+              24 X 7 online support</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact top -->
+  <div class="section-padding contact-form-map">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="section-header style-left">
+            <div class="section-heading">
+              <h3 class="text-custom-black">Get In Touch</h3>
+              <div class="section-description">
+                <p class="text-light-dark">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+              </div>
+            </div>
+          </div>
+          <div id="msgBox" style="display:none;" class="alert" role="alert"></div>  <!-- 移除 display:block; 并且设置默认隐藏 -->
+<!-- Start Contact Form -->
+<form id="contactPageForm" method="POST" class="mb-md-80"> <!-- Added id -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+         <label class="fs-14 text-custom-black fw-500">Your Name:<span class="required">*</span></label> <!-- Optional: Add label -->
+        <input type="text" name="your_name" class="form-control form-control-custom" placeholder="Name" required=""> <!-- name changed -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="fs-14 text-custom-black fw-500">E-mail:<span class="required">*</span></label> <!-- Optional: Add label -->
+        <input type="email" name="your_email" class="form-control form-control-custom" placeholder="Email I'd" required=""> <!-- name changed -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+         <label class="fs-14 text-custom-black fw-500">Subject:<span class="required">*</span></label> <!-- Optional: Add label -->
+        <input type="text" name="your_subject" class="form-control form-control-custom" placeholder="Subject" required=""> <!-- name changed -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+         <label class="fs-14 text-custom-black fw-500">Phone:<span class="required">*</span></label> <!-- Optional: Add label -->
+        <input type="text" name="your_phone" class="form-control form-control-custom" placeholder="Phone No." required=""> <!-- name changed -->
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+         <label class="fs-14 text-custom-black fw-500">Message:<span class="required">*</span></label> <!-- Optional: Add label -->
+        <textarea name="your_message" rows="5" class="form-control form-control-custom" placeholder="Message" required=""></textarea> <!-- name changed -->
+      </div>
+      <div id="contactMsgBox" style="display:none; margin-bottom: 15px;" class="alert" role="alert"></div> <!-- Message Box -->
+      <button type="submit" class="btn-first btn-submit">Submit</button>
+    </div>
+  </div>
+</form><!-- End Contact Form -->                  </div>
+        <div class="col-lg-5">
+          <div class="contact-map full-height">
+            <iframe class="full-height" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3266.9994683575105!2d118.32871301569628!3d35.0317432021982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35c749b0e3284417%3A0xfc3d9955cb88992e!2z5Li05rKC5paw6byO5rOw5biC5Zy6!5e0!3m2!1szh-CN!2sca!4v1745374852133!5m2!1szh-CN!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{ end }}

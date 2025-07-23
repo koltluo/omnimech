@@ -1,0 +1,116 @@
+{{ define "main" }}
+<!-- Subheader -->
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">Blog Archive</h1>
+  {{ partial "breadcrumb.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Archive Content -->
+<section class="section-padding bg-light-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="archive-container bx-wrapper bg-custom-white padding-20">
+          <h2 class="text-custom-black mb-4">All Posts</h2>
+          
+          <!-- Yearly Grouping -->
+          {{ range (.Site.RegularPages.GroupByDate "2006") }}
+            <div class="archive-year-group mb-5" id="year-{{ .Key }}">
+              <h3 class="archive-year-title text-custom-blue mb-3">
+                <i class="fas fa-calendar-alt mr-2"></i>{{ .Key }}
+                <span class="badge bg-custom-blue text-white ml-2">{{ len .Pages }}</span>
+              </h3>
+              
+              <!-- Monthly Grouping -->
+              {{ range .Pages.GroupByDate "January 2006" }}
+                <div class="archive-month-group mb-4">
+                  <h4 class="archive-month-title text-custom-black mb-3">
+                    {{ .Key }}
+                  </h4>
+                  
+                  <ul class="archive-post-list list-unstyled">
+                    {{ range .Pages }}
+                      <li class="archive-post-item mb-3">
+                        <div class="d-flex align-items-center">
+                          <span class="archive-post-date text-light-dark mr-3">
+                            {{ .Date.Format "Jan 2" }}
+                          </span>
+                          <a href="{{ .RelPermalink }}" class="archive-post-title text-custom-black">
+                            {{ .Title }}
+                          </a>
+                          {{ if .Params.categories }}
+                            <span class="archive-post-categories ml-auto">
+                              {{ range $index, $category := .Params.categories }}
+                                {{ if gt $index 0 }}, {{ end }}
+                                <a href="{{ "/categories/" | relURL }}{{ $category | urlize }}" class="badge badge-secondary">
+                                  {{ $category }}
+                                </a>
+                              {{ end }}
+                            </span>
+                          {{ end }}
+                        </div>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        {{ partial "blog/sidebar.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Archive Navigation -->
+<div class="archive-navigation bg-light-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-between">
+          <div class="archive-stats">
+            <span class="text-custom-black">
+              <i class="fas fa-file-alt mr-2"></i>
+              Total Posts: {{ len .Site.RegularPages }}
+            </span>
+          </div>
+          <div class="archive-jump">
+            <select class="form-control form-control-custom archive-year-select">
+              <option value="">Jump to Year...</option>
+              {{ range (.Site.RegularPages.GroupByDate "2006") }}
+                <option value="#year-{{ .Key }}">{{ .Key }} ({{ len .Pages }})</option>
+              {{ end }}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script for Year Jump -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const yearSelect = document.querySelector('.archive-year-select');
+  if (yearSelect) {
+    yearSelect.addEventListener('change', function() {
+      if (this.value) {
+        window.location.href = this.value;
+      }
+    });
+  }
+});
+</script>
+
+{{ end }}

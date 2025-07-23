@@ -1,0 +1,95 @@
+<div class="sidebar_wrap mb-md-80">
+  <div class="sidebar">
+
+    <!-- Categories Widget -->
+    <div class="sidebar_widgets mb-xl-30">
+      <div class="widget_title">
+        <h5 class="no-margin text-custom-white">Category</h5>
+      </div>
+      <ul class="categories custom">
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+          <li>
+            <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="text-custom-black fs-14" target="_blank">
+              {{ $name | humanize }} <span class="text-light-dark">({{ $taxonomy.Count }})</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <!-- Recent Posts Widget -->
+    <div class="sidebar_widgets mb-xl-30">
+      <div class="widget_title">
+        <h5 class="no-margin text-custom-white">Recent Posts</h5>
+      </div>
+      <ul class="popular-post custom resend-banner sidebar-arrow arrow-layout-2">
+        {{ $recentPosts := site.RegularPages.ByDate.Reverse | first 5 }} {{/* 获取最新的 5 篇文章 */}}
+        {{ range $recentPosts }}
+          <li class="post-box">
+            <div class="post-img p-relative mb-xl-20">
+              <a href="{{ .RelPermalink }}" target="_blank">
+                {{ if .Params.image }}
+                  <img src="{{ .Params.image | relURL }}" class="full-width" alt="{{ .Title }}">
+                {{ else }}
+                  <img src="/images/about.jpg" class="full-width" alt="{{ .Title }}">  {{/* 占位图 */}}
+                {{ end }}
+              </a>
+            </div>
+            <a href="{{ .RelPermalink }}" target="_blank">
+              <p class="mb-xl-50">{{ .Title }}</p>
+            </a>
+            <!--  如果需要摘要，则取消注释下一行 -->
+           <p class="mb-xl-50">{{ .Params.summary }}</p> 
+          </li>
+        {{ end }}
+      </ul>
+  </div>
+
+    <!-- Tags Widget -->
+    <div class="sidebar_widgets mb-xl-30">
+      <div class="widget_title">
+        <h5 class="no-margin text-custom-white">Tags</h5>
+      </div>
+      <div class="tags">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+          <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" target="_blank">{{ $name }}</a>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Archive Widget -->
+    <div class="sidebar_widgets">
+      <div class="widget_title">
+        <h5 class="no-margin text-custom-white">Archive</h5>
+      </div>
+      <ul class="categories custom">
+        {{ range (.Site.RegularPages.GroupByDate "2006") }}
+          <li>
+            <a href="{{ "/archive/#" | relURL }}year-{{ .Key }}" class="text-custom-black fs-14" target="_blank">
+              {{ .Key }} <span class="text-light-dark"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Search Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = '/search/?q=' + encodeURIComponent(query);
+      }
+    });
+  }
+});
+</script>

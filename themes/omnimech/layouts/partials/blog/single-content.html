@@ -1,0 +1,193 @@
+{{ $page := . }}
+<div class="blog-details bx-wrapper bg-custom-white padding-20 mb-md-80">
+  <!-- Article Content -->
+  <article class="post p-relative">
+    <div class="post-wrapper">
+      <!-- Featured Image -->
+      <div class="post-img animate-img mb-xl-20">
+        {{ with $page.Params.image }}
+          <img src="{{ . | relURL }}" class="image-fit" alt="{{ $page.Title }}">
+        {{ else }}
+          <img src="/theme-assets/images/blog/large.jpg" class="image-fit" alt="{{ $page.Title }}">
+        {{ end }}
+      </div>
+      
+      <!-- Post Meta -->
+      <div class="blog-meta bg-custom-white">
+        <div class="post-meta-box mb-xl-20">
+          <!-- Categories -->
+          <div class="post-categories">
+            {{ range $index, $category := $page.Params.categories }}
+              {{ if gt $index 0 }}, {{ end }}
+              <a href="{{ "/categories/" | relURL }}{{ $category | urlize }}" class="text-custom-black fs-18">{{ $category }}</a>
+            {{ end }}
+          </div>
+          
+          <!-- Stats -->
+          <div class="post-meta">
+            <a href="#comments" class="text-light-dark mr-2">
+              <span class="text-custom-blue"><i class="fas fa-comment"></i></span>
+              {{ $page.Params.comments | default 20 }}
+            </a>
+            <a href="#" class="text-light-dark mr-2" tabindex="-1">
+              <span class="text-custom-blue"><i class="fas fa-thumbs-up"></i></span>
+              {{ $page.Params.likes | default 50 }}
+            </a>
+            <a href="#" class="text-light-dark mr-2" tabindex="-1">
+              <span class="text-custom-blue"><i class="fas fa-eye"></i></span>
+              {{ $page.Params.views | default 500 }}
+            </a>
+            <!-- Date -->
+            <div class="post-date">
+              <div class="text-custom-white bg-custom-blue fw-600 date">{{ $page.Date.Format "02" }}</div>
+              <div class="text-custom-white year">{{ $page.Date.Format "Jan 2006" }}</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Title -->
+        <div class="post-heading p-relative">
+          <h2><a href="{{ $page.RelPermalink }}" class="text-custom-black">{{ $page.Title }}</a></h2>
+        </div>
+        
+        <!-- Author -->
+        <div class="post-author mb-xl-20">
+          <div class="author-img animate-img">
+            {{ $author := .Params.author | default "Admin" }}
+            <a href="#">
+              <img src="/theme-assets/images/blog/anouther.jpg" class="rounded-circle" alt="{{ $author }}">
+            </a>
+          </div>
+          <span class="text-theme fs-14">
+            By <a href="#" class="text-custom-black fw-500">{{ $author }}</a>
+          </span>
+        </div>
+        
+        <!-- Content -->
+        <div class="post-content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Tags & Social Sharing -->
+  <hr>
+  <div class="post-details-tags-social mb-xl-20">
+    <div class="row no-margin">
+      <div class="col-md-6">
+        <div class="tags-box">
+          <span class="fs-18 text-light-dark"><i class="fas fa-tags"></i></span>
+          <div class="tags">
+            {{ range $tag := $page.Params.tags }}
+              <a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}">{{ $tag }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="social-media-box">
+          <ul class="custom-flex">
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" class="fb" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <span class="social-number bg-light-white">{{ .Params.facebook | default 500 }}</span>
+            </li>
+            <li>
+              <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" class="tw" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <span class="social-number bg-light-white">{{ .Params.twitter | default 20 }}</span>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/YOUR_YOUTUBE_CHANNEL_ID" class="fb" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <span class="social-number bg-light-white">{{ .Params.youtube | default 46 }}</span>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="bg-custom-blue share-button">
+                <i class="fas fa-share-alt"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Pagination -->
+  <div class="pagination-btn">
+    <nav>
+      <ul class="pagination">
+        {{ with $page.Prev }}
+        <li class="page-item">
+          <a class="page-link" href="{{ .RelPermalink }}">Previous</a>
+        </li>
+        {{ else }}
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        {{ end }}
+        
+        {{ with $page.Next }}
+        <li class="page-item">
+          <a class="page-link" href="{{ .RelPermalink }}">Next</a>
+        </li>
+        {{ else }}
+        <li class="page-item disabled">
+          <span class="page-link">Next</span>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="comment-box section-padding-top p-relative" id="comments">
+    <h4 class="text-custom-black fw-600">Leave Comment</h4>
+    <div id="twikoo"></div>
+  </div>
+</div>
+
+<!-- Share Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const shareButton = document.querySelector('.share-button');
+  
+  if (shareButton) {
+    shareButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      const shareUrl = window.location.href;
+      const shareTitle = document.title;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: shareTitle,
+          text: '',
+          url: shareUrl,
+        })
+        .then(() => console.log('Shared successfully'))
+        .catch((error) => console.log('Error sharing:', error));
+      } else {
+        alert('Your browser doesn\'t support sharing. Copy this link: ' + shareUrl);
+      }
+    });
+  }
+});
+</script>
+
+<!-- Twikoo Comments -->
+<script src="https://cdn.staticfile.org/twikoo/1.6.30/twikoo.min.js"></script>
+<script>
+twikoo.init({
+  envId: '{{ .Site.Params.twikooEnvId }}',
+  el: '#twikoo',
+  path: '{{ .RelPermalink }}',
+  lang: '{{ .Site.Language.Lang | default "en" }}'
+}).catch(err => {
+  console.error('Twikoo init failed:', err);
+});
+</script>

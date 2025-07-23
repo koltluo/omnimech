@@ -1,0 +1,57 @@
+
+
+{{ define "main" }}
+
+    <!-- Start Subheader -->
+    <div class="subheader normal-bg section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 wow fadeInDown">
+            <h1 class="text-custom-white">{{ .Title }}</h1>
+  {{ partial "breadcrumb.html" . }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Subheader -->
+
+    <!-- Start Blog -->
+    <section class="section-padding bg-light-white blog-details">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="blog-details bx-wrapper bg-custom-white padding-20">
+
+              <!-- article -->
+              <article class="post p-relative">
+                <div class="post-wrapper">
+                  {{ if .Params.image }}  <!--  如果文章有 image 参数 -->
+                    <div class="post-img animate-img mb-xl-20">
+                      <img src="{{ .Params.image | absURL }}" class="image-fit" alt="{{ .Title }}">  <!--  使用 absolute URL，便于图片显示 -->
+                    </div>
+                  {{ end }}
+                  <div class="blog-meta bg-custom-white">
+                    <div class="post-meta-box mb-xl-20">
+                    </div>
+                    <div class="post-heading p-relative">
+                      <h2><a href="{{ .Permalink }}" class="text-custom-black">{{ .Title }}</a></h2>  <!--  文章标题 -->
+                    </div>
+                    <div class="post-content text-light-dark">
+                      {{ .Content }}  <!--  文章内容 -->
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- article -->
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Blog -->
+
+{{ end }}

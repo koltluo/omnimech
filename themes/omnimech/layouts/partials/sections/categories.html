@@ -1,0 +1,35 @@
+{{ with .Site.Params.homepage.categories }}
+{{ if .enable }}
+<div class="main-section categories-view1-full">
+  <span class="light-transparent"></span>
+  <div class="container">
+    <div class="section-header text-center ">
+      <div class="section-heading">
+        {{ with .title }}<h3 class="text-custom-white">{{ . | safeHTML }}</h3>{{ end }}
+        {{ with .description }}<div class="section-description"><p class="text-light-dark">{{ . | markdownify }}</p></div>{{ end }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Categories List -->
+        <div class="categories-1 categories-view1">
+          <ul class="row">
+            {{ range $index, $item := .items }}
+            <li class="col-lg-4 col-md-6 wow {{ if mod $index 2 }}fadeInRight{{ else }}fadeInLeft{{ end }}"> {{/* Alternating animation */}}
+              <div class="categories-view1-wrap">
+                {{ with $item.icon }}<i class="{{ . }}"></i>{{ end }}
+                {{ with $item.title }}<a href="{{ $item.link | default "#" | absURL }}">{{ . }}</a>{{ end }}
+                {{ with $item.details }}<small>{{ . }}</small>{{ end }}
+                <span>{{ printf "%02d" (add $index 1) }}</span> {{/* Display index number (01, 02, ...) */}}
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        <!-- Categories List -->
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}

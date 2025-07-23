@@ -1,0 +1,146 @@
+<div class="related-products">
+    <h3 class="section-title mb-4">You May Also Like</h3>
+    
+    <div class="row">
+      {{ $related := where (where .Site.Pages "Section" "products") "Params.categories" "intersect" .Params.categories }}
+      {{ $related = $related | intersect (where .Site.Pages "Title" "!=" .Title) }}
+      {{ range first 4 $related }}
+        <div class="col-md-3 col-6 mb-4">
+          <div class="product-card h-100">
+            <div class="product-thumb">
+              <a href="{{ .RelPermalink }}">
+                <img src="{{ .Params.images.thumb | default "/images/default-product-thumb.jpg" | relURL }}" 
+                     alt="{{ .Title }}" 
+                     class="img-fluid">
+              </a>
+              {{ if .Params.sale_price }}
+                <span class="badge badge-danger sale-badge">Sale</span>
+              {{ end }}
+            </div>
+            <div class="product-details p-3">
+              <h4 class="product-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </h4>
+              <div class="product-price mb-2">
+                {{ if .Params.sale_price }}
+                  <span class="price">${{ .Params.sale_price }}</span>
+                  <span class="price-old">${{ .Params.price }}</span>
+                {{ else }}
+                  <span class="price">${{ .Params.price }}</span>
+                {{ end }}
+              </div>
+              <div class="product-rating mb-2">
+                <div class="stars" style="--rating: {{ .Params.rating | default "4" }};">
+                  <span class="sr-only">Rating: {{ .Params.rating | default "4" }} out of 5 stars</span>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-outline-primary w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+  
+  <style>
+  .related-products {
+    margin-top: 50px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--custom-blue);
+  }
+  
+  .product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+  }
+  
+  .product-thumb {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .product-thumb img {
+    transition: transform 0.5s;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .product-card:hover .product-thumb img {
+    transform: scale(1.05);
+  }
+  
+  .sale-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+  
+  .product-title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .product-title a {
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .product-title a:hover {
+    color: var(--custom-blue);
+    text-decoration: none;
+  }
+  
+  .price {
+    font-weight: 600;
+    color: #d82a1e;
+  }
+  
+  .price-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-left: 5px;
+  }
+  
+  .product-rating .stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  
+  .product-rating .stars::before {
+    content: '★★★★★';
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ffc107 var(--percent), #ddd var(--percent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  </style>
+  

@@ -1,0 +1,50 @@
+{{ $paginator := .Paginator }} {{/* 获取分页器对象 */}}
+
+{{/* 仅在总页数大于1时才显示分页控件 */}}
+{{ if gt $paginator.TotalPages 1 }}
+<nav> {{/* 使用你 HTML 中的 nav 标签 */}}
+  <ul class="pagination justify-content-center"> {{/* 使用你 HTML 中的 class */}}
+
+    {{/* Previous 链接 */}}
+    {{ if $paginator.HasPrev }}
+      <li class="page-item">
+        <a class="page-link" href="{{ $paginator.Prev.URL }}">Previous</a> {{/* 使用你 HTML 中的文本 */}}
+      </li>
+    {{ else }}
+      {{/* 如果是第一页，仍显示 Previous，但可以根据需要设为禁用 */}}
+      {{/* 为了严格匹配你的 HTML，我们这里仍然显示一个链接，尽管它可能不该有功能 */}}
+      {{/* 更标准的做法是添加 'disabled' 类 */}}
+      <li class="page-item disabled"> {{/* 建议添加 disabled 类 */}}
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+    {{ end }}
+
+    {{/* 页面数字链接 */}}
+    {{ range $paginator.Pagers }}
+      {{/* 判断是否为当前页 */}}
+      {{ if eq . $paginator }}
+        <li class="page-item active"> {{/* 使用你 HTML 中的 active 类 */}}
+          <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a> {{/* 即使是当前页，你的 HTML 也用了 <a> */}}
+        </li>
+      {{ else }}
+        <li class="page-item">
+          <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+
+    {{/* Next 链接 */}}
+    {{ if $paginator.HasNext }}
+      <li class="page-item">
+        <a class="page-link" href="{{ $paginator.Next.URL }}">Next</a> {{/* 使用你 HTML 中的文本 */}}
+      </li>
+    {{ else }}
+      {{/* 如果是最后一页，仍显示 Next */}}
+      <li class="page-item disabled"> {{/* 建议添加 disabled 类 */}}
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+      </li>
+    {{ end }}
+
+  </ul>
+</nav>
+{{ end }}

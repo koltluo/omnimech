@@ -1,0 +1,61 @@
+{{ define "main" }}
+{{/* --- Get Layout from Front Matter --- */}}
+{{ $layout := .Params.layout | default "grid" }} {{/* Default to "grid" if not specified */}}
+
+{{/* --- Common Subheader (Always Displayed) --- */}}
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 wow fadeInDown">
+        <h1 class="text-custom-white">{{ .Title }}</h1>
+        <ul class="custom-flex justify-content-center">
+          <li class="fw-500"> <a href="{{ site.BaseURL | relLangURL }}" class="text-custom-white">Home</a> </li>
+          <li class="fw-500"> <a href="{{ "/blog" | relLangURL }}" class="text-custom-white">Blog</a> </li>
+          <li class="active fw-500"> {{ .Title }} </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/* --- Main Content Section --- */}}
+<section class="section-padding bg-light-white">
+  <div class="container">
+    <div class="row">
+
+      {{ if eq $layout "grid" }}
+        {{/* --- Grid Layout (Full Width) --- */}}
+        <div class="col-12"> {{/* Full width for grid layout */}}
+          {{ partial "blog/single-content.html" . }}  {{/* Render the main content section */}}
+        </div>
+
+      {{ else if eq $layout "left-sidebar" }}
+        {{/* --- Left Sidebar Layout --- */}}
+        <aside class="col-lg-4">
+          {{ partial "blog/sidebar.html" . }}
+        </aside>
+        <div class="col-lg-8">
+          {{ partial "blog/single-content.html" . }}
+        </div>
+
+      {{ else if eq $layout "right-sidebar" }}
+        {{/* --- Right Sidebar Layout --- */}}
+        <div class="col-lg-8">
+          {{ partial "blog/single-content.html" . }}
+        </div>
+        <aside class="col-lg-4">
+          {{ partial "blog/sidebar.html" . }}
+        </aside>
+
+      {{ else }}
+        {{/* --- Default (Grid) or Unknown Layout --- */}}
+        <div class="col-12">
+          {{ partial "blog/single-content.html" . }}
+          <p>Warning:  Unknown layout specified in front matter.  Using default (grid) layout.</p>
+        </div>
+      {{ end }} {{/* End Layout Check */}}
+
+    </div> {{/* End Row */}}
+  </div> {{/* End Container */}}
+</section>
+{{ end }}

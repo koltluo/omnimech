@@ -1,0 +1,86 @@
+{{ $mainImage := .Resources.GetMatch (printf "*%s*" (.Params.image | default "default.jpg")) }}
+{{ $galleryImages := slice }}
+{{ with .Params.images.gallery }}
+  {{ range . }}
+    {{ with $.Resources.GetMatch (printf "*%s*" .) }}
+      {{ $galleryImages = $galleryImages | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $mainImage }}{{ $mainImage = index $galleryImages 0 }}{{ end }} {{/* Fallback to first gallery image if main not found */}}
+<div class="product-gallery-zoom">
+  <div class="product-image">
+    {{ if $mainImage }}
+      <img src="{{ $mainImage.RelPermalink }}"
+           xoriginal="{{ $mainImage.RelPermalink }}"
+           alt="{{ $.Title }}"
+           class="xzoom" itemprop="image" width="100%" height="auto"
+           data-src="{{ $mainImage.RelPermalink }}"
+           data-large_image="{{ $mainImage.RelPermalink }}" />
+    {{ else }}
+      <img src="/images/placeholder.jpg" alt="{{ $.Title }} - Placeholder Image" class="xzoom" itemprop="image" width="100%" height="auto" />
+    {{ end }}
+  </div>
+</div>
+{{ if gt (len $galleryImages) 0 }}
+<div class="product-thumbs-wrapper">
+  <span class="jcarousel-control-prev radius-lt"><i class="WPPOPFont icon-arrow-left"></i></span>
+  <div class="product-thumbs-gallery">
+    <ol class="flex-control-nav flex-control-thumbs">
+      {{/* Include main image as first thumbnail if it exists */}}
+      {{ if and $mainImage (not (in $galleryImages $mainImage)) }}
+          <li class="flex-thumb {{ if eq $mainImage (or $.Params.image (index $galleryImages 0).RelPermalink) }}flex-active{{ end }}">
+              <img src="{{ ($mainImage.Resize "150x150").RelPermalink }}"
+                   xpreview="{{ $mainImage.RelPermalink }}"
+                   alt="Thumbnail main" width="150" height="150" />
+          </li>
+      {{ end }}
+      {{ range $index, $img := $galleryImages }}
+        <li class="flex-thumb {{ if eq $img $mainImage }}flex-active{{ end }}">
+          <img src="{{ ($img.Resize "150x150").RelPermalink }}"
+               xpreview="{{ $img.RelPermalink }}"
+               alt="Thumbnail {{ add $index 1 }}" width="150" height="150" />
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+  <span class="jcarousel-control-next radius-rt"><i class="WPPOPFont icon-arrow-right"></i></span>
+</div>
+{{ end }}
+{{/* Script placement depends on your setup. Ensure jQuery and xzoom are loaded before this. */}}
+{{/* Consider adding this script block to your main JS file or footer partial */}}
+<script type="text/javascript">
+  // Initialize xzoom gallery
+  (function ($) {
+    if ($(window).width() > 1023) {
+      $('.xzoom, .xzoom-gallery').xzoom({
+        position: 'right', // Adjust as needed
+        Xoffset: 15,
+        tint: '#000',
+        tintOpacity: 0.5,
+        lens: '#fff',
+        lensOpacity: 0.1,
+        scroll: true,
+        defaultScale: -1
+      });
+    }
+     // Basic thumbnail carousel (replace with your actual carousel logic if needed)
+    $('.product-thumbs-gallery').each(function() {
+        // Basic logic to handle clicking thumbnails - requires more robust carousel JS
+        $(this).find('.flex-thumb img').on('click', function() {
+            var $mainImg = $('.product-image .xzoom');
+            var previewSrc = $(this).attr('xpreview');
+            if ($mainImg.length && previewSrc) {
+                 // This might need adjustment depending on how xzoom updates
+                 $mainImg.attr('src', previewSrc).attr('xoriginal', previewSrc).data('xoriginal', previewSrc);
+                 // Reinitialize or update xzoom if necessary (consult xzoom docs)
+                 if ($.fn.xzoom) {
+                    $mainImg.trigger('xzoom:update', previewSrc);
+                 }
+                 $(this).closest('.flex-control-thumbs').find('.flex-active').removeClass('flex-active');
+                 $(this).parent().addClass('flex-active');
+            }
+        });
+    });
+  })(jQuery);
+</script>

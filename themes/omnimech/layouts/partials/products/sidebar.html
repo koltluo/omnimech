@@ -1,0 +1,55 @@
+<div class="sidebar_wrap mb-md-80">
+    <div class="sidebar">
+
+<!--
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white"> 搜索</h5>
+        </div>
+        <form>
+           <div class="form-group">
+            <label class="fs-14 text-custom-black fw-500">关键词</label>
+            <input type="text" name="q" class="form-control form-control-custom" placeholder="输入产品名称...">
+          </div>
+           <button type="submit" class="btn-first btn-submit full-width btn-height">搜索</button>
+        </form>
+      </div>
+-->
+
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">价格范围</h5>
+        </div>
+        <!-- 价格范围滑块 (JS可能需要初始化) -->
+        <div class="widget_range">
+          <div class="thc-range-inner">
+            <input type="text" class="js-range-slider1" name="my_range" value="">
+          </div>
+        </div>
+      </div>
+      <div class="sidebar_widgets mb-xl-30">
+        <div class="widget_title">
+          <h5 class="no-margin text-custom-white">产品分类</h5>
+        </div>
+        {{/* 这里可以动态生成分类列表 */}}
+        {{ $productCategories := $.Site.Taxonomies.product_categories }} {{/* 假设你的产品分类法叫 product_categories */}}
+        {{ if $productCategories }}
+        <form class="checkbox-group">
+          {{ range $name, $taxonomy := $productCategories.Alphabetical }}
+          <div class="form-group">
+            <label class="custom-checkbox">
+              <input type="checkbox" name="category" value="{{ $name }}">
+              <span class="checkmark"></span> {{ $name | humanize }} ({{ $taxonomy.Count }})
+            </label>
+          </div>
+          {{ end }}
+          {{/* <a class="btn-second btn-small mt-3" href="#">View More</a> */}}
+        </form>
+        {{ else }}
+          <p>暂无分类</p>
+        {{ end }}
+      </div>
+      <!-- 其他侧边栏小部件 -->
+    </div>
+  </div>
+  
