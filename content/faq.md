@@ -109,4 +109,4 @@ faqs:  # 定义 FAQs 数据
     question: "What is the return policy for industrial electrical products with manufacturing defects?"
     answer: "If you receive industrial electrical products with manufacturing defects, we have a hassle-free return policy. Notify us within 7 days of receipt, and we'll arrange for the return of the defective products. Once the defect is verified, we'll provide a replacement, refund, or credit, depending on your preference. We stand behind the quality of our products and ensure your satisfaction."
 
-
+---

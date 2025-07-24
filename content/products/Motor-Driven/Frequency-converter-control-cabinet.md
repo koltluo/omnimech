@@ -24,12 +24,6 @@ description: "A Frequency converter control cabinet, also known as a variable fr
 summary_specs:
   - name: "Price"
     value: "$118.00"
-  - name: "Size"
-    value: "5.8” x 3.4” x 3.4”"
-  - name: "Weight"
-    value: "29.0 oz. (821 grams)"
-  - name: "Color"
-    value: "Charcoal Fabric, Oak Finish"
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
   - name: "Power"

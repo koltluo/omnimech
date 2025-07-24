@@ -3,34 +3,22 @@ title: "ZW32 12F High Voltage Intelligent Vacuum Circuit Breaker"
 rating: 5.0
 price: "12,800"
 original_price: "15,999"
-image: "/images/zw32-12f/1.jpg" # Path relative to the 'static' folder or use Hugo Pipes
+image: "/images/ZW32-12F/1.jpg" # Path relative to the 'static' folder or use Hugo Pipes
 date: 2019-01-18
 use_xzoom: true
 gallery: # List of gallery image filenames in this folder
-  - "/images/zw32-12f/1.jpg"
-  - "/images/zw32-12f/2.jpg"
-  - "/images/zw32-12f/3.jpg"
-  - "/images/zw32-12f/4.jpg"
-  - "/images/zw32-12f/5.jpg"
-  - "/images/zw32-12f/6.jpg"
+  - "/images/ZW32-12F/1.jpg"
+  - "/images/ZW32-12F/2.jpg"
+  - "/images/ZW32-12F/3.jpg"
+  - "/images/ZW32-12F/4.jpg"
+  - "/images/ZW32-12F/5.jpg"
+  - "/images/ZW32-12F/6.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
 tags: ["Alexa", "Amazon", "Speaker"]
 product_categories: ["Smart Speaker", "Electronics"]
 summary_specs:
-  - name: "Price"
-    value: "$12,800.00"
-  - name: "Size"
-    value: "5.8” x 3.4” x 3.4”"
-  - name: "Weight"
-    value: "29.0 oz. (821 grams)"
-  - name: "Color"
-    value: "Charcoal Fabric, Oak Finish"
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
-  - name: "Power"
-    value: "11(KW)"
-  - name: "Voltage "
-    value: "380(V)"
   - name: "Place of Origin"
     value: "Shandong, China (Mainland)"
   - name: "Brand Name"

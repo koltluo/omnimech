@@ -32,7 +32,7 @@ summary_specs:
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
   - name: "Power"
-    value: "11(KW)"
+    value: "11-800(KW)"
   - name: "Voltage "
     value: "380(V)"
   - name: "Place of Origin"

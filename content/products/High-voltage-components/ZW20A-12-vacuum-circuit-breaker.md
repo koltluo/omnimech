@@ -15,20 +15,8 @@ gallery: # List of gallery image filenames in this folder
 tags: ["Alexa", "Amazon", "Speaker"]
 product_categories: ["Smart Speaker", "Electronics"]
 summary_specs:
-  - name: "Price"
-    value: "$12,800.00"
-  - name: "Size"
-    value: "5.8” x 3.4” x 3.4”"
-  - name: "Weight"
-    value: "29.0 oz. (821 grams)"
-  - name: "Color"
-    value: "Charcoal Fabric, Oak Finish"
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
-  - name: "Power"
-    value: "11(KW)"
-  - name: "Voltage "
-    value: "380(V)"
   - name: "Place of Origin"
     value: "Shandong, China (Mainland)"
   - name: "Brand Name"

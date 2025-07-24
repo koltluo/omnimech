@@ -1,5 +1,5 @@
 ---
-title: "SCB10 10kV resin insulated dry type transformer"
+title: "SCB10 10kV Epoxy Resin Cast Dry-Type Power Transformer"
 rating: 5.0
 price: "12,800"
 original_price: "15,999"
@@ -9,27 +9,27 @@ use_xzoom: true
 gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/43.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [SC(B)10 Epoxy Resin Cast Dry-Type Power Transformer,power transformation,advanced technology,unparalleled performance,reliability,diverse power needs,excellent insulation properties,enhanced safety,longer service life,reduced electrical failures,short - circuits,critical power applications,dry - type design,oil - free,environmentally friendly,low noise operation,low - loss characteristics,energy savings,adaptable,wide range of environmental conditions,compact design,easy installation,space - saving,high - quality,efficient,reliable solution,modern power systems]
 
-product_categories: ["Complete-switch-cabinet", "power distribution system"]
+product_categories: ["Transformer", "power distribution system"]
 
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "This transformer is designed to meet the diverse power needs of various industries. The epoxy resin casting ensures excellent insulation properties, which translates to enhanced safety and a longer service life. It effectively reduces the risk of electrical failures and short - circuits, making it a preferred choice for critical power applications."
 
 summary_specs:
-  - name: "Price"
-    value: "$12,800.00"
-  - name: "Size"
-    value: "5.8” x 3.4” x 3.4”"
-  - name: "Weight"
-    value: "29.0 oz. (821 grams)"
-  - name: "Color"
-    value: "Charcoal Fabric, Oak Finish"
+  - name: "Capacity range"
+    value: "20 - 6300KVA"
+  - name: "Voltage class"
+    value: "6KV, 10KV, 20KV, 35KV"
+  - name: "Frequency"
+    value: "50Hz"
+  - name: "Number of phases"
+    value: "3 - phase or single - phase"
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
-  - name: "Power"
-    value: "0.75~800(KW)"
-  - name: "Voltage "
-    value: "220/380(V)"
+  - name: "Temperature limit"
+    value: "180°C"
+  - name: "Protection notice "
+    value: "IP00 or IP20 (indoor), IP23"
   - name: "Place of Origin"
     value: "Shandong, China (Mainland)"
   - name: "Brand Name"
@@ -50,7 +50,18 @@ linkedin: 777
 ### Product Overview
 
 
-![SCB10-10kV-resin-insulated-dry-type-transformer](/images/Complete-switch-cabinet/46.png) 
+The SC(B)10 Epoxy Resin Cast Dry-Type Power Transformer is a revolutionary product in the field of power transformation. With its advanced **SC(B)10 Epoxy Resin Cast Dry-Type Power Transformer** technology, it offers unparalleled performance and reliability.
+
+This transformer is designed to meet the diverse power needs of various industries. The epoxy resin casting ensures excellent insulation properties, which translates to enhanced safety and a longer service life. It effectively reduces the risk of electrical failures and short - circuits, making it a preferred choice for critical power applications.
+
+The dry - type design of the **SC(B)10 Epoxy Resin Cast Dry-Type Power Transformer** eliminates the need for oil, thus avoiding potential oil leakage problems and associated environmental hazards. This makes it an environmentally friendly option for power systems.
+
+In addition, the SC(B)10 series stands out for its low noise operation. Whether it is installed in commercial buildings, industrial plants, or residential areas, it won't cause excessive noise pollution. The low - loss characteristics of the transformer also contribute to energy savings, helping users reduce their electricity bills in the long run.
+
+Moreover, the SC(B)10 Epoxy Resin Cast Dry - Type Power Transformer is highly adaptable. It can operate stably under a wide range of environmental conditions, including high - humidity and high - temperature environments. Its compact design allows for easy installation and space - saving, making it suitable for both new and retrofit projects.
+
+Overall, the **SC(B)10 Epoxy Resin Cast Dry-Type Power Transformer** is a high - quality, efficient, and reliable solution for modern power systems. Its advanced features and benefits make it an ideal choice for those seeking a top - notch power transformation product. 
+
 Resin insulated dry-type transformers are our company's introduction of foreign advanced technology, and independently developed SCB10 and SCB11 series thin-insulated dry-type transformers with fillers. Because the coils are encapsulated by epoxy resin, they are flame retardant, fireproof, explosion-proof, maintenance-free, and pollution-free. , Small size, can be directly installed in the load center. At the same time, the scientific and reasonable design and pouring process make the product less partial discharge, low noise, and strong heat dissipation capacity. It can run for a long time under 125% rated load under forced air cooling conditions, and is equipped with an intelligent temperature controller. Alarm, over-temperature alarm, over-temperature tripping and gate functions, and connected to the computer through the RS485 serial interface, can be monitored and controlled centrally.
 
 * * *
