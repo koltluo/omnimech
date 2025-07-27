@@ -14,6 +14,7 @@ gallery: # List of gallery image filenames in this folder
 # Add your other params: summary_specs, technical_specs_table, etc.
 tags: [External bypass soft starter,electrical control,motor start,motor control,smooth start,reduce inrush current,extend motor lifespan,external bypass functionality,energy efficiency,customizable,multiple protection functions,reliable motor control,efficient motor control,flexible motor control]
 product_categories: ["Motor drive", "electric motor starting"]
+description: "This series of soft starters is an external bypass type, with a structure design of six inputs and three outputs. It is small and exquisite, and has a complete motor comprehensive protection function. The complete set of cabinets does not need an external protector, but it must be used with an external AC contactor."
 summary_specs:
   - name: "Price"
     value: "$92.00"
@@ -39,6 +40,18 @@ linkedin: 777
 ---
 
 ### Product Overview
+
+The **External bypass soft starter** is a crucial device in the field of electrical control. It plays a significant role in starting and controlling electric motors.
+
+This advanced **External bypass soft starter** is designed to provide a smooth and controlled start for motors, reducing the inrush current that can cause stress on electrical systems and equipment during startup. By gradually ramping up the voltage and current supplied to the motor, it minimizes mechanical and electrical shock, which in turn extends the lifespan of the motor and associated components.
+
+One of the key features of the **External bypass soft starter** is its external bypass functionality. Once the motor reaches its normal operating speed, the soft starter can bypass itself, allowing the motor to run directly on the line voltage. This not only improves energy efficiency but also reduces heat generation and power consumption during normal operation.
+
+The **External bypass soft starter** is also highly customizable. It can be adjusted to suit different motor types, sizes, and application requirements. This versatility makes it suitable for a wide range of industries, including manufacturing, mining, and oil and gas.
+
+In terms of safety, the **External bypass soft starter** is equipped with multiple protection functions. It can protect against over - current, over - voltage, under - voltage, and phase loss, ensuring the reliable and stable operation of the motor and the entire electrical system.
+
+Overall, the **External bypass soft starter** is a reliable, efficient, and flexible solution for motor control. Whether you are looking to improve the performance of your existing motor system or install a new one, this product is an excellent choice. 
 
 This series of soft starters is an external bypass type, with a structure design of six inputs and three outputs. It is small and exquisite, and has a complete motor comprehensive protection function. The complete set of cabinets does not need an external protector, but it must be used with an external AC contactor. , After the soft starter is started, the AC contactor runs at full pressure, the product is more stable and reliable, and has a long service life.This product is widely used in the starting control of transmission equipment, fans, pumps, crushers and other loads, and the product complies with GB14048.6-2016
 ### Performance characteristics：

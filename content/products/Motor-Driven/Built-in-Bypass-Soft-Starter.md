@@ -13,6 +13,7 @@ gallery: # List of gallery image filenames in this folder
 # Add your other params: summary_specs, technical_specs_table, etc.
 tags: [Built-in bypass soft starter,electric motor starting,smooth and controlled start,energy-saving,advanced control algorithms,protection functions,communication capabilities,industrial automation,remote monitoring and control]
 product_categories: ["soft starter", "electric motor starting"]
+description: "This advanced soft starter incorporates a built - in bypass function, which significantly enhances its performance and energy - saving capabilities."
 summary_specs:
   - name: "Price"
     value: "$102.00"

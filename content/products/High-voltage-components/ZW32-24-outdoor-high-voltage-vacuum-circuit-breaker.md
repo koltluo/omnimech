@@ -3,13 +3,13 @@ title: "ZW32 24 outdoor high voltage vacuum circuit breaker"
 rating: 5.0
 price: "12,800"
 original_price: "15,999"
-image: "/images/ZW32-24/1.jpg" # Path relative to the 'static' folder or use Hugo Pipes
+image: "/images/zw32-24/1.jpg" # Path relative to the 'static' folder or use Hugo Pipes
 date: 2019-01-18
 use_xzoom: true
 gallery: # List of gallery image filenames in this folder
-  - "/images/ZW32-24/1.jpg"
-  - "/images/ZW32-24/2.jpg"
-  - "/images/ZW32-24/3.jpg"
+  - "/images/zw32-24/1.jpg"
+  - "/images/zw32-24/2.jpg"
+  - "/images/zw32-24/3.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
 tags: ["Alexa", "Amazon", "Speaker"]
 product_categories: ["Smart Speaker", "Electronics"]

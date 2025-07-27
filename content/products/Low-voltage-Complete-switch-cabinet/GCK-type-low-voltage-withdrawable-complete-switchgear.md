@@ -9,11 +9,11 @@ use_xzoom: true
 gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/3.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [GCK Low - voltage Drawer - type Switchgear Complete Set,low - voltage switchgear,high reliability,high safety,advanced technology,stable operation,harsh industrial environments,easy maintenance,quick component replacement,minimized downtime,excellent electrical performance,high currents and voltages handling,stable power supply,modular structure,customizable,commercial buildings,industrial plants,strict quality control,international safety standards,reliable efficient and safe solution]
 
 product_categories: ["Complete-switch-cabinet", "power distribution system"]
 
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "The GCK Low - voltage Drawer - type Switchgear Complete Set is a state - of - the - art electrical equipment designed to meet the demanding needs of modern power distribution systems. "
 
 summary_specs:
   - name: "Certification"
@@ -36,6 +36,16 @@ linkedin: 777
 
 
 ### Product Overview
+
+The GCK Low - voltage Drawer - type Switchgear Complete Set is a state - of - the - art electrical equipment designed to meet the demanding needs of modern power distribution systems. 
+
+This **GCK Low - voltage Drawer - type Switchgear Complete Set** offers high reliability and safety features. It is engineered with advanced technology to ensure stable operation even in harsh industrial environments. The drawer - type design allows for easy maintenance and quick replacement of components, minimizing downtime. 
+
+The **GCK Low - voltage Drawer - type Switchgear Complete Set** has excellent electrical performance. It can handle high currents and voltages efficiently, providing a stable power supply to various electrical loads. With its modular structure, it can be easily customized to fit different application requirements, whether it's for commercial buildings, industrial plants or other facilities.
+
+In addition, this switchgear complete set is designed with strict quality control measures. It meets international safety standards, protecting both the equipment and the operators from potential electrical hazards. 
+
+Overall, the GCK Low - voltage Drawer - type Switchgear Complete Set is an ideal choice for those looking for a reliable, efficient and safe low - voltage switchgear solution. 
 
 GCK low-voltage switchgear series is called combined low-voltage withdrawable switchgear (hereinafter referred to as switchgear). It is suitable for the power system of AC 50~60HZ, rated working voltage AC 380V, rated insulation voltage 660V, 1600KVA and below distribution transformer as power distribution, power, lighting, reactive power compensation, motor control center, and designed in the standard cabinet The mixed system of fixed scheme and withdrawal scheme can meet the different needs of users.
 

@@ -23,12 +23,6 @@ description: "The vector frequency converter is a power control device that uses
 summary_specs:
   - name: "Price"
     value: "$58.00"
-  - name: "Size"
-    value: "5.8” x 3.4” x 3.4”"
-  - name: "Weight"
-    value: "29.0 oz. (821 grams)"
-  - name: "Color"
-    value: "Charcoal Fabric, Oak Finish"
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
   - name: "Power"

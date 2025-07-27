@@ -9,11 +9,11 @@ use_xzoom: true
 gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/6.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [GZDW Intelligent High - frequency DC Screen,direct current power supply systems,reliable and stable DC power,advanced intelligent control technology,high - efficiency power utilization,smaller size,light weight,high reliability,multiple protection functions,easy to operate and maintain,user - friendly interface,modular design,stable and intelligent DC power supply solution]
 
 product_categories: ["Complete-switch-cabinet", "power distribution system"]
 
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "The GZDW Intelligent High - frequency DC Screen is a state - of - the - art product in the field of direct current power supply systems. This intelligent high - frequency DC screen is designed to provide reliable and stable DC power for various electrical equipment, especially in critical applications where continuous power is essential."
 
 summary_specs:
   - name: "Certification"
@@ -36,6 +36,15 @@ linkedin: 777
 
 ### Product Overview
 
+The GZDW Intelligent High - frequency DC Screen is a state - of - the - art product in the field of direct current power supply systems. This intelligent high - frequency DC screen is designed to provide reliable and stable DC power for various electrical equipment, especially in critical applications where continuous power is essential.
+
+With advanced intelligent control technology, the **GZDW Intelligent High - frequency DC Screen** can automatically adjust its output parameters according to the actual load requirements. This not only ensures high - efficiency power utilization but also extends the service life of the connected equipment. The high - frequency design of the screen enables it to have a smaller size and lighter weight compared to traditional DC screens, making it more suitable for installation in limited spaces.
+
+One of the key features of the GZDW Intelligent High - frequency DC Screen is its high reliability. It is equipped with multiple protection functions, such as over - voltage protection, under - voltage protection, over - current protection, and short - circuit protection. These protection mechanisms safeguard the screen and the connected devices from potential damage caused by abnormal electrical conditions.
+
+Moreover, the **GZDW Intelligent High - frequency DC Screen** is easy to operate and maintain. It has a user - friendly interface that allows operators to monitor and control the screen's operation conveniently. The modular design of the screen makes it easy to replace components in case of failure, reducing downtime and maintenance costs.
+
+In summary, the GZDW Intelligent High - frequency DC Screen is an ideal choice for industries and applications that require a stable, reliable, and intelligent DC power supply solution. Whether it is for power plants, substations, or other electrical facilities, this high - frequency DC screen can meet the diverse needs of modern electrical systems. 
 
 GZDW series DC screen with cadmium nickel battery, floating charger, equipped with automatic detection and alarm device, has long service life, no pollution, convenient maintenance, stable voltage, ultra-low internal resistance output, withstand large current impact and strong adaptability, reliability Advanced features, it is an ideal DC operating power supply device, which can be widely used in substations of 500kV and below and power plants below, and can also be used in metallurgy, mining, petroleum, radio and television, computer rooms, underground railways, high-rise buildings In construction and other departments, it is used as DC control, signal power supply, power failure protection and circuit breaker operating mechanism opening and closing power supply.
 

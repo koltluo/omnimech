@@ -10,11 +10,11 @@ gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/36.jpg"
   - "/images/Complete-switch-cabinet/5.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [XL-21 AC Low-voltage Power Distribution Cabinet,low-voltage power distribution,alternating current power distribution,industrial power distribution,commercial power distribution,residential power distribution,electrical component installation,electrical component maintenance,circuit breakers,switches,electrical devices,high electrical loads,short-circuit protection,overload protection,continuous power supply,safe power distribution,reliable power distribution solution]
 
 product_categories: ["Complete-switch-cabinet", "power distribution system"]
 
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "The XL-21 cabinet offers a range of features that make it a preferred choice for power distribution. It is built with high - quality materials to provide excellent durability and protection against environmental factors."
 
 summary_specs:
   - name: "Certification"
@@ -37,6 +37,16 @@ linkedin: 777
 
 
 ### Product Overview
+
+The XL-21 AC Low-voltage Power Distribution Cabinet** is a crucial component in electrical systems for effectively distributing power at low voltage levels. This cabinet is designed to handle alternating current (AC) and is widely used in various industrial, commercial, and residential settings to ensure a stable and reliable power supply.
+
+The XL-21 cabinet offers a range of features that make it a preferred choice for power distribution. It is built with high - quality materials to provide excellent durability and protection against environmental factors. The internal layout is well - organized, allowing for easy installation and maintenance of electrical components. It can accommodate a variety of circuit breakers, switches, and other electrical devices, which can be configured according to specific power requirements.
+
+In industrial applications, the **XL-21 AC Low-voltage Power Distribution Cabinet** plays a vital role in powering heavy machinery and equipment. It can handle high electrical loads and provides protection against short - circuits and overloads, safeguarding the equipment from damage. In commercial buildings, such as offices and shopping malls, it ensures a continuous power supply to lighting, HVAC systems, and other electrical appliances.
+
+Residential users also benefit from the reliability of the XL-21 cabinet. It distributes power safely throughout the house, protecting the electrical system from potential hazards. With its advanced design and engineering, the cabinet complies with all relevant safety standards, giving users peace of mind.
+
+Overall, the XL-21 AC Low-voltage Power Distribution Cabinet is a versatile and essential solution for all your low - voltage power distribution needs. Whether you are looking for a reliable power distribution solution for a large industrial plant or a small residential building, this cabinet is a great choice. 
 
 XL-21 type power cabinet can be widely used in metallurgy, mining, petroleum, chemical industry, electric power, building materials, mechanical processing, transportation, hotels, restaurants It is used for power distribution and open power distribution of three-phase four-wire power system. It provides protection for overload, short circuit and leakage of the line, and performs normal conversion of the circuit. This product is an indoor closed device, and its enclosure protection level is IP40. The product complies with GB7251.1 and IEC60493-1 and other standards
 
