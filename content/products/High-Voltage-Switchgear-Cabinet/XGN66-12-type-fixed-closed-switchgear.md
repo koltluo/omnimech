@@ -9,9 +9,9 @@ use_xzoom: true
 gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/2.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [High-voltage complete switchgear,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
 product_categories: ["Complete-switch-cabinet", "power distribution system"]
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "XGN66-12(Z) switchgear is a metal-enclosed box-type structure. The frame of the cabinet is welded by angle steel. The cabinet is divided into a circuit breaker room, a busbar room, a cable room, a relay room, etc., and the rooms are separated by steel plates."
 summary_specs:
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"

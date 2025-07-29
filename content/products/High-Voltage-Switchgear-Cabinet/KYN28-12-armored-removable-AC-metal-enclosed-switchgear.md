@@ -9,11 +9,11 @@ use_xzoom: true
 gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/28.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [KYN28-12(Z) AC Metal-clad Switchgear,power distribution systems,electrical equipment,high-performance,stable operation,robust metal-clad structure,high-quality insulation materials,advanced control and protection systems,easy installation and maintenance,stable and safe power supply]
 
 product_categories: ["Complete-switch-cabinet", "power distribution system"]
 
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "KYN28-12 type (GZS1) armored removable AC metal-enclosed switchgear (hereinafter referred to as switchgear) is a three-phase AC 50Hz indoor complete power distribution device, used to receive and non-distribute 3-12KV network power and The circuit implements control protection and supervision."
 
 summary_specs:
   - name: "Certification"
@@ -37,6 +37,18 @@ linkedin: 777
 
 ### Product Overview
 
+
+The KYN28-12(Z) AC Metal-clad Switchgear is an advanced and reliable electrical equipment designed for power distribution systems. This switchgear offers high - performance and stable operation in various industrial and commercial applications.
+
+**KYN28-12(Z) AC Metal-clad Switchgear** is built with a robust metal - clad structure, which provides excellent protection for internal components from external environmental factors. It effectively isolates electrical parts, reducing the risk of electrical faults and ensuring the safety of operators and equipment.
+
+One of the key features of the **KYN28-12(Z) AC Metal - clad Switchgear** is its high - quality insulation materials. These materials can withstand high - voltage conditions, minimizing the possibility of electrical breakdown and enhancing the overall reliability of the switchgear.
+
+In addition, this switchgear is equipped with advanced control and protection systems. The intelligent control system allows for precise monitoring and control of electrical parameters, while the protection system can quickly detect and respond to faults such as over - current, over - voltage, and short - circuit, effectively protecting the power system and connected equipment.
+
+The **KYN28-12(Z) AC Metal - clad Switchgear** also features easy installation and maintenance. Its modular design enables convenient assembly and disassembly, reducing installation time and cost. At the same time, the accessible structure makes maintenance work more efficient and less time - consuming.
+
+Whether it's a small - scale industrial facility or a large - scale commercial building, the KYN28 - 12(Z) AC Metal - clad Switchgear is an ideal choice for ensuring a stable and safe power supply. With its outstanding performance and reliable quality, it can meet the diverse needs of modern power distribution systems. 
 
 KYN28-12 type (GZS1) armored removable AC metal-enclosed switchgear (hereinafter referred to as switchgear) is a three-phase AC 50Hz indoor complete power distribution device, used to receive and non-distribute 3-12KV network power and The circuit implements control protection and supervision. Various types of microcomputer integrated relay protection devices are installed on the panel of the relay chamber of this product, and can realize the intelligent control of the system. It has the functions of remote control, telemetry, remote signaling and remote adjustment, and is controlled by CAN bus with communication interface. The on-site network also has the functions of preventing misoperation of circuit breakers, preventing pulling back of the handcart with load, preventing grounding switch from being closed with a point, preventing the grounding switch from transmitting power at the grounding position and preventing accidental entry into the charged interval, namely the "five prevention" functions for short.
 

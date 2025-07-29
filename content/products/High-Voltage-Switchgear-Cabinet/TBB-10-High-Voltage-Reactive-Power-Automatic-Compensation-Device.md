@@ -9,9 +9,9 @@ use_xzoom: true
 gallery: # List of gallery image filenames in this folder
   - "/images/Complete-switch-cabinet/44.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: [HXGN17 12 unit AC metal enclosed ring network switchgear,AC metal enclosed ring network switchgear,12 unit AC metal enclosed ring network switchgear,power distribution system,ring network power supply,stable power distribution,electrical components,circuit breaking,isolation,protection,easy installation,easy maintenance,continuous and secure power supply]
+tags: [High-voltage complete switchgear]
 product_categories: ["Complete-switch-cabinet", "power distribution system"]
-description: "HXGN15-12 (F), HXGN15-12 (F R) box-type fixed AC metal-enclosed switchgear (hereinafter referred to as switchgear), suitable for rated voltage of 12KV, rated frequency of 50HZ, rated current of 630A and above A three-phase AC system powered by network cabinets or radial terminals, used for segmenting and branching of cable lines."
+description: "Equipped with ZKG or GKN type controller, the power factor and system voltage can be controlled within the set range by automatically tracking the switching capacitor and controlling the on-load voltage regulation of the main transformer. It can automatically identify and adapt to various operation modes of dual main substations."
 summary_specs:
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
@@ -34,7 +34,6 @@ linkedin: 777
 ### Product Overview
 
 
-![TBB-10-High-Voltage-Reactive-Power-Automatic-Compensation-Device](/images/Complete-switch-cabinet/7.png) 
 TBB□-10 high-voltage reactive power automatic compensation device is suitable for reactive power automatic tracking compensation of 35kV, 10kV (6kV) buses in 220kV, 110kV, 35kV substations, and is mainly used in 3-35kV three-phase power frequency AC power systems with large load fluctuations , the use of centralized compensation still cannot meet the system requirements, often resulting in over-compensation or under-compensation. This device can detect the reactive power required by the system in real time, and then compare it with the set value to perform automatic intelligent switching operation, so that the reactive power of the system can reach a dynamic balance, so as to improve the power factor of the system and stabilize the system Voltage, reduce loss and save electricity cost.
 
 * * *

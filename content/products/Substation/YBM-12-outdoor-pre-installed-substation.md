@@ -12,8 +12,9 @@ gallery: # List of gallery image filenames in this folder
   - "/images/YBM/3.jpg"
   - "/images/YBM/4.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: ["Alexa", "Amazon", "Speaker"]
-product_categories: ["Smart Speaker", "Electronics"]
+tags: [YBM-12/0.4 Outdoor Preassembled Substation,European Style Substation,outdoor preassembled substation,power distribution solution,12/0.4 kV substation,high-performance substation,reliable substation,preassembled substation,European design substation,weather-resistant substation,stable power supply substation]
+product_categories: [Box-type substation]
+description: "The YBM-12/0.4 Outdoor Preassembled Substation (European Style) is a remarkable product that combines advanced technology with the refined European design. "
 summary_specs:
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
@@ -36,7 +37,18 @@ linkedin: 777
 
 
 ## Product Overview
-* * *
+
+The YBM-12/0.4 Outdoor Preassembled Substation (European Style) is a remarkable product that combines advanced technology with the refined European design. 
+
+This substation is specifically engineered for outdoor use, offering high - performance and reliable power distribution solutions. The **YBM - 12/0.4 Outdoor Preassembled Substation** is preassembled, which means it significantly reduces the on - site installation time and complexity. This not only saves labor costs but also shortens the overall project cycle.
+
+With a rated voltage of 12/0.4 kV, it can efficiently step down the high - voltage electricity to a suitable level for various applications. The European - style design not only gives it an aesthetically pleasing appearance but also incorporates the latest safety and efficiency standards. 
+
+The **YBM - 12/0.4 Outdoor Preassembled Substation (European Style)** is built to withstand harsh outdoor environments. It has excellent weather resistance, protecting the internal components from rain, snow, and extreme temperatures. This makes it an ideal choice for a wide range of locations, including industrial areas, residential communities, and commercial complexes.
+
+In addition, the preassembled nature of this substation ensures high - quality control during the manufacturing process. All components are carefully selected and integrated to work seamlessly together, providing a stable and secure power supply. Whether you need a power distribution solution for a small - scale project or a large - scale infrastructure, the YBM - 12/0.4 Outdoor Preassembled Substation (European Style) is a reliable and efficient option.
+
+Investing in this substation means investing in a long - term, high - performance power distribution solution that meets the modern requirements of power systems. So, if you are in search of a top - notch outdoor preassembled substation, the **YBM - 12/0.4 Outdoor Preassembled Substation (European Style)** should be at the top of your list. 
 
 The YBM-12/0.4 Outdoor Prefabricated Substation (European Style) is widely used in urban power grid renovation, residential areas, high-rise buildings, industrial and mining enterprises, hotels, shopping malls, airports, railways, oil fields, wharfs, highways, and temporary power supply facilities, suitable for both indoor and outdoor environments.
 

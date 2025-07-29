@@ -11,8 +11,9 @@ gallery: # List of gallery image filenames in this folder
   - "/images/ZGS/2.jpg"
   - "/images/ZGS/3.jpg"
 # Add your other params: summary_specs, technical_specs_table, etc.
-tags: ["Alexa", "Amazon", "Speaker"]
-product_categories: ["Smart Speaker", "Electronics"]
+tags: [YB27 - 12/0.4 High - voltage/Low - voltage Prefabricated Substation (American Style),power distribution,high - quality materials,advanced technology,compact design,reliable power solution,efficient power output,cost - effective substation]
+product_categories: [Box-type substation]
+description: "The YB27 - 12/0.4 High - voltage/Low - voltage Prefabricated Substation (American Style) is a state - of - the - art electrical solution designed to meet diverse power distribution needs. "
 summary_specs:
   - name: "Certification"
     value: "CB, CE, EMC, EMF, ROHS"
@@ -38,7 +39,18 @@ linkedin: 777
 
 
 ## Product Overview
-* * *
+
+The YB27 - 12/0.4 High - voltage/Low - voltage Prefabricated Substation (American Style) is a state - of - the - art electrical solution designed to meet diverse power distribution needs. 
+
+This **YB27 - 12/0.4 High - voltage/Low - voltage Prefabricated Substation (American Style)** is engineered with high - quality materials and advanced technology. It combines high - voltage and low - voltage components in a prefabricated unit, which simplifies the installation process and reduces on - site construction time. The American style design not only adheres to international standards but also offers unique advantages in terms of performance and reliability.
+
+The high - voltage section of the **YB27 - 12/0.4 High - voltage/Low - voltage Prefabricated Substation (American Style)** is capable of handling significant electrical loads. It is equipped with advanced protection mechanisms to ensure the safety of the entire power system. These protection features help prevent electrical faults and outages, minimizing disruptions to power supply.
+
+On the other hand, the low - voltage part provides stable and efficient power output to end - users. It can be customized to meet different power requirements, making it suitable for a wide range of applications such as commercial buildings, industrial facilities, and residential areas.
+
+The prefabricated nature of this substation means that it is factory - assembled and tested before being delivered to the site. This ensures a high level of quality control and reduces the risk of errors during installation. Moreover, its compact design allows for easy placement even in areas with limited space.
+
+In summary, the **YB27 - 12/0.4 High - voltage/Low - voltage Prefabricated Substation (American Style)** is a reliable, efficient, and cost - effective solution for power distribution. Whether you are looking for a power solution for a new project or need to upgrade an existing system, this substation is an excellent choice. 
 
 The YB27-12/0.4 model high/low voltage prefabricated substation (American style) is developed by absorbing foreign standard technology and combining actual domestic conditions. The entire unit is characterized by its small size, easy installation and maintenance, low noise, low loss, anti-theft, strong overload capacity, and full protection. It is suitable for use in newly built residential areas, green belts, parks, hotels near stations, construction sites, airports, and other locations. The YB27-12 series of American-style prefabricated substations are suitable for 10kV ring network power supply, dual power supply, or terminal power supply systems, serving as a substation, metering, compensation control, and protection device. This product complies with the following standards: GB/T17467-1998 "High Voltage Low Voltage Prefabricated Substation" and DL/T537-93 "Technical Conditions for the Ordering of 6-35kV Box Substations."
 
